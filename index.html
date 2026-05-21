@@ -1,266 +1,87 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIMKT — AI Marketing Hub for Brands & Vendors · AI 营销中台</title>
+<title>AIMKT — AI Marketing Hub for Brands & Vendors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0E0E10;--ink-muted:#6B6B72;--ink-faint:#AEAEB5;
-  --surface:#F7F6F2;--white:#FFFFFF;
-  --accent:#3D2FD4;--accent-light:#EAE7FF;
-  --green:#0E7B57;--green-light:#D6F3E9;
-  --amber:#B45309;--amber-light:#FEF3C7;
-  --border:rgba(14,14,16,0.10);
-  --radius:12px;--radius-lg:20px;
-}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden}
-
-/* BILINGUAL TOGGLE */
-.zh{display:block}.en{display:none}
-span.zh{display:inline}span.en{display:none}
-body.lang-en .zh{display:none}body.lang-en .en{display:block}
-body.lang-en span.zh{display:none}body.lang-en span.en{display:inline}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:64px;background:rgba(247,246,242,0.92);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--border)}
-.logo{font-family:'DM Serif Display',serif;font-size:22px;letter-spacing:-.5px;color:var(--ink);text-decoration:none}
-.logo em{font-style:normal;color:var(--accent)}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:14px;color:var(--ink-muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-right{display:flex;gap:10px;align-items:center}
-.lang-btn{font-size:13px;font-weight:500;padding:6px 14px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--ink-muted);cursor:pointer;transition:all .2s;letter-spacing:.02em}
-.lang-btn:hover{color:var(--ink);border-color:rgba(14,14,16,.25)}
-.btn-ghost{font-size:14px;font-weight:500;padding:8px 18px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;transition:background .2s}
-.btn-ghost:hover{background:rgba(14,14,16,.06)}
-.btn-primary{font-size:14px;font-weight:600;padding:8px 20px;border-radius:100px;background:var(--accent);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity .2s,transform .15s}
-.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
-
-/* HERO */
-.hero{padding:152px 2.5rem 100px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1200px;margin:0 auto;align-items:center}
-.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:var(--accent-light);color:var(--accent);padding:4px 14px;border-radius:100px;margin-bottom:1.5rem}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
-.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(36px,4.5vw,58px);line-height:1.08;letter-spacing:-1px;color:var(--ink);margin-bottom:1.25rem}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:17px;color:var(--ink-muted);line-height:1.75;margin-bottom:2rem;max-width:460px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn-lg{font-size:15px;font-weight:600;padding:14px 28px;border-radius:100px;background:var(--accent);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity .2s,transform .15s}
-.btn-lg:hover{opacity:.88;transform:translateY(-1px)}
-.btn-lg-out{font-size:15px;font-weight:500;padding:14px 28px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s}
-.btn-lg-out:hover{background:rgba(14,14,16,.05)}
-.hero-trust{margin-top:2rem;font-size:13px;color:var(--ink-faint);display:flex;align-items:center;gap:8px}
-.hero-trust::before{content:'';display:inline-block;width:32px;height:1px;background:var(--ink-faint)}
-
-/* HERO PANEL */
-.hero-panel{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;animation:float 6s ease-in-out infinite;overflow:hidden}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.dash-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
-.dash-title{font-size:13px;font-weight:600}
-.live-badge{font-size:11px;font-weight:500;background:var(--green-light);color:var(--green);padding:3px 10px;border-radius:100px}
-.m-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.25rem}
-.mc{background:var(--surface);border-radius:var(--radius);padding:12px}
-.ml{font-size:11px;color:var(--ink-muted);margin-bottom:4px}
-.mv{font-size:21px;font-weight:600;color:var(--ink)}
-.mv.g{color:var(--green)}
-.ms{font-size:11px;color:var(--ink-faint);margin-top:2px}
-.chart-box{background:var(--surface);border-radius:var(--radius);padding:14px;margin-bottom:1rem}
-.cl{font-size:11px;color:var(--ink-muted);margin-bottom:10px}
-.bars{display:flex;align-items:flex-end;gap:6px;height:54px}
-.b{flex:1;border-radius:4px 4px 0 0;background:var(--accent-light)}
-.b.hi{background:var(--accent)}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{font-size:11px;font-weight:500;padding:4px 10px;border-radius:100px;border:0.5px solid var(--border);background:var(--white);color:var(--ink-muted);white-space:nowrap}
-
-/* SECTIONS */
-section{max-width:1200px;margin:0 auto;padding:80px 2.5rem}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
-.sh2{font-family:'DM Serif Display',serif;font-size:clamp(28px,3.8vw,46px);line-height:1.1;letter-spacing:-.5px;color:var(--ink);margin-bottom:1rem}
-.sh2 em{font-style:italic;color:var(--accent)}
-.slead{font-size:17px;color:var(--ink-muted);max-width:540px;line-height:1.7}
-.shead{margin-bottom:3rem}
-hr.div{max-width:1200px;margin:0 auto;border:none;border-top:0.5px solid var(--border)}
-
-/* PAIN */
-.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.pain-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:2rem}
-.aud{display:inline-flex;font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px;margin-bottom:1.25rem}
-.aud.br{background:var(--accent-light);color:var(--accent)}
-.aud.vd{background:var(--green-light);color:var(--green)}
-.pain-h{font-family:'DM Serif Display',serif;font-size:21px;line-height:1.25;margin-bottom:1rem}
-.pain-list{list-style:none;display:flex;flex-direction:column;gap:0}
-.pain-list li{font-size:14px;color:var(--ink-muted);display:flex;align-items:flex-start;gap:8px;padding:9px 0;border-bottom:0.5px solid var(--border)}
-.pain-list li:last-child{border-bottom:none}
-.pain-list li::before{content:'×';color:#E24B4A;font-weight:700;flex-shrink:0;margin-top:1px}
-
-/* FEATURES */
-.feat-wrap{display:flex;flex-direction:column;gap:5rem}
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.feat.rev{direction:rtl}
-.feat.rev>*{direction:ltr}
-.fn{font-family:'DM Serif Display',serif;font-size:72px;color:var(--accent-light);line-height:1;margin-bottom:.5rem}
-.fh{font-family:'DM Serif Display',serif;font-size:31px;line-height:1.15;color:var(--ink);margin-bottom:.75rem;letter-spacing:-.3px}
-.fd{font-size:16px;color:var(--ink-muted);line-height:1.7;margin-bottom:1.5rem}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{font-size:13px;font-weight:500;padding:6px 14px;border-radius:100px;border:0.5px solid var(--border);background:var(--white);color:var(--ink-muted)}
-.fpanel{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;min-height:280px}
-.ai-tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:6px}
-.ai-q{background:var(--surface);border-radius:var(--radius);padding:14px 16px;font-size:13px;color:var(--ink-muted);margin-bottom:12px;line-height:1.6}
-.ai-a{background:var(--accent-light);border-radius:var(--radius);padding:14px 16px;font-size:13px;color:var(--accent);line-height:1.6}
-.v-list{display:flex;flex-direction:column;gap:10px}
-.v-item{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border-radius:var(--radius);padding:12px 14px}
-.vn{font-size:14px;font-weight:500}
-.vt{font-size:12px;color:var(--ink-muted);margin-top:2px}
-.vs{font-size:13px;font-weight:600;color:var(--amber);background:var(--amber-light);padding:3px 10px;border-radius:100px}
-
-/* VENDOR DARK */
-.vd-wrap{max-width:1200px;margin:0 auto;padding:0 2.5rem 80px}
-.vd-box{background:var(--ink);border-radius:24px;padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.vstep{display:flex;flex-direction:column;gap:1rem}
-.vstep-item{display:flex;align-items:flex-start;gap:14px;padding:1.25rem;background:rgba(255,255,255,.06);border-radius:var(--radius);border:0.5px solid rgba(255,255,255,.1)}
-.snum{width:28px;height:28px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
-.stxt{font-size:14px;line-height:1.5;color:rgba(255,255,255,.8)}
-.stxt strong{font-weight:600;color:#fff;display:block;margin-bottom:2px}
-.btn-wh{display:inline-block;font-size:15px;font-weight:600;padding:14px 28px;border-radius:100px;background:#fff;color:var(--ink);border:none;cursor:pointer;text-decoration:none;margin-top:1.75rem;transition:opacity .2s}
-.btn-wh:hover{opacity:.88}
-
-/* PROOF */
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.proof-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem}
-.ptag{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:100px;margin-bottom:1rem}
-.ptag.br{background:var(--accent-light);color:var(--accent)}
-.ptag.vd{background:var(--green-light);color:var(--green)}
-.pq{font-size:15px;line-height:1.7;color:var(--ink);margin-bottom:1.25rem;font-style:italic}
-.pa{display:flex;align-items:center;gap:10px}
-.av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.av.a1{background:var(--accent-light);color:var(--accent)}
-.av.a2{background:var(--green-light);color:var(--green)}
-.av.a3{background:var(--amber-light);color:var(--amber)}
-.an{font-size:13px;font-weight:600}
-.ar{font-size:12px;color:var(--ink-muted)}
-
-/* PRICING */
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.pc{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:2rem;position:relative}
-.pc.feat{border:2px solid var(--accent);background:var(--accent)}
-.pbadge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:4px 14px;border-radius:100px;white-space:nowrap}
-.pc.feat .pbadge{background:#fff;color:var(--accent)}
-.pname{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-muted);margin-bottom:.75rem}
-.pc.feat .pname{color:rgba(255,255,255,.7)}
-.pprice{font-family:'DM Serif Display',serif;font-size:40px;line-height:1;color:var(--ink);margin-bottom:4px}
-.pprice span{font-size:18px}
-.pc.feat .pprice{color:#fff}
-.pper{font-size:13px;color:var(--ink-faint);margin-bottom:1.5rem}
-.pc.feat .pper{color:rgba(255,255,255,.55)}
-.pf{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem}
-.pf li{font-size:14px;color:var(--ink-muted);display:flex;gap:8px;align-items:flex-start}
-.pf li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
-.pc.feat .pf li{color:rgba(255,255,255,.85)}
-.pc.feat .pf li::before{color:rgba(255,255,255,.9)}
-.pbtn{display:block;text-align:center;font-size:14px;font-weight:600;padding:12px;border-radius:100px;border:1.5px solid var(--border);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer;transition:background .2s}
-.pbtn:hover{background:var(--surface)}
-.pc.feat .pbtn{background:#fff;border-color:#fff;color:var(--accent)}
-
-/* FOOTER */
-footer{background:var(--white);border-top:0.5px solid var(--border);padding:4rem 2.5rem 2.5rem}
-.fi{max-width:1200px;margin:0 auto}
-.fcta{background:var(--surface);border-radius:var(--radius-lg);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;gap:2rem}
-.fcta h3{font-family:'DM Serif Display',serif;font-size:26px;color:var(--ink);margin-bottom:6px}
-.fcta p{font-size:14px;color:var(--ink-muted)}
-.fcta-btns{display:flex;gap:10px;flex-shrink:0}
-.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-.flogo{font-family:'DM Serif Display',serif;font-size:24px;color:var(--ink);margin-bottom:.75rem}
-.flogo em{font-style:normal;color:var(--accent)}
-.fdesc{font-size:14px;color:var(--ink-muted);line-height:1.6;max-width:220px}
-.fct{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:1rem}
-.flinks{list-style:none;display:flex;flex-direction:column;gap:8px}
-.flinks a{font-size:14px;color:var(--ink-muted);text-decoration:none;transition:color .2s}
-.flinks a:hover{color:var(--ink)}
-.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:0.5px solid var(--border);font-size:13px;color:var(--ink-faint)}
-
-/* ANIM */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.fu{opacity:0;animation:fadeUp .6s ease forwards}
-.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.38s}.d4{animation-delay:.52s}
-
-@media(max-width:860px){
-  nav{padding:0 1.25rem}
-  .nav-links{display:none}
-  .hero{grid-template-columns:1fr;padding:120px 1.25rem 60px;gap:2.5rem}
-  .hero-panel{display:none}
-  section{padding:60px 1.25rem}
-  .pain-grid,.feat,.feat.rev,.price-grid,.proof-grid{grid-template-columns:1fr;direction:ltr}
-  .vd-box{grid-template-columns:1fr;padding:3rem 2rem}
-  .vd-wrap{padding:0 1.25rem 60px}
-  .ftop{grid-template-columns:1fr 1fr}
-  .fcta{flex-direction:column}
-  .fcta-btns{flex-direction:column;width:100%}
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="lang-en">
 
 <nav>
-  <a href="#" class="logo"><em>AI</em>MKT</a>
+  <a href="index.html" class="logo"><em>AI</em>MKT</a>
   <ul class="nav-links">
-    <li><a href="#features"><span class="zh">AI 工具</span><span class="en">AI Tools</span></a></li>
-    <li><a href="#features"><span class="zh">Campaign 追踪</span><span class="en">Campaign Tracking</span></a></li>
-    <li><a href="#vendor"><span class="zh">供应商市场</span><span class="en">Vendor Marketplace</span></a></li>
-    <li><a href="#pricing"><span class="zh">定价</span><span class="en">Pricing</span></a></li>
+    <li><a href="features.html"><span class="en">Features</span><span class="zh">AI 工具</span><span class="th">ฟีเจอร์</span></a></li>
+    <li><a href="vendors.html"><span class="en">Vendors</span><span class="zh">供应商市场</span><span class="th">ผู้ขาย</span></a></li>
+    <li><a href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span><span class="th">ราคา</span></a></li>
+    <li><a href="about.html"><span class="en">About</span><span class="zh">关于我们</span><span class="th">เกี่ยวกับเรา</span></a></li>
+    <li><a href="culture.html"><span class="en">Culture</span><span class="zh">企业文化</span><span class="th">วัฒนธรรม</span></a></li>
+    <li><a href="sustainability.html"><span class="en">Sustainability</span><span class="zh">可持续发展</span><span class="th">ความยั่งยืน</span></a></li>
   </ul>
   <div class="nav-right">
-    <button class="lang-btn" onclick="document.body.classList.toggle('lang-en')">
-      <span class="zh">EN</span><span class="en">中文</span>
-    </button>
-    <a href="#vendor" class="btn-ghost"><span class="zh">供应商入驻</span><span class="en">Join as Vendor</span></a>
-    <a href="#" class="btn-primary"><span class="zh">品牌免费试用</span><span class="en">Try Free</span></a>
+    <button class="lang-btn">中文 / TH</button>
+    <a href="vendors.html" class="btn-ghost"><span class="en">Join as Vendor</span><span class="zh">供应商入驻</span><span class="th">เข้าร่วมเป็นผู้ขาย</span></a>
+    <a href="#" class="btn-primary"><span class="en">Try Free</span><span class="zh">品牌免费试用</span><span class="th">ทดลองใช้ฟรี</span></a>
   </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-overlay"></div>
+<div class="mobile-menu">
+  <a href="index.html"><span class="en">Home</span><span class="zh">首页</span><span class="th">หน้าแรก</span></a>
+  <a href="features.html"><span class="en">Features</span><span class="zh">AI 工具</span><span class="th">ฟีเจอร์</span></a>
+  <a href="vendors.html"><span class="en">Vendors</span><span class="zh">供应商市场</span><span class="th">ผู้ขาย</span></a>
+  <a href="pricing.html"><span class="en">Pricing</span><span class="zh">定价</span><span class="th">ราคา</span></a>
+  <a href="about.html"><span class="en">About</span><span class="zh">关于我们</span><span class="th">เกี่ยวกับเรา</span></a>
+  <a href="culture.html"><span class="en">Culture</span><span class="zh">企业文化</span><span class="th">วัฒนธรรม</span></a>
+  <a href="sustainability.html"><span class="en">Sustainability</span><span class="zh">可持续发展</span><span class="th">ความยั่งยืน</span></a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
   <div>
-    <div class="hero-tag fu d1"><span class="zh">AI 营销中台</span><span class="en">AI Marketing Hub</span></div>
-    <h1 class="fu d2 zh">让每一个 Campaign，<br><em>从策划到收口</em><br>都有数可依</h1>
-    <h1 class="fu d2 en">Every Campaign,<br><em>Planned, Tracked</em><br>and Delivered.</h1>
-    <p class="hero-sub fu d3 zh">AIMKT 是专为品牌营销团队打造的 AI 中台 —— AI 工具提速创意生产，实时 Dashboard 追踪每条链路，供应商市场一键匹配合作伙伴。</p>
-    <p class="hero-sub fu d3 en">AIMKT is the AI-powered marketing hub built for brand teams — accelerate creative production, track every campaign in real time, and find the right vendors in one place.</p>
-    <div class="hero-actions fu d4">
-      <a href="#" class="btn-lg"><span class="zh">品牌免费试用 →</span><span class="en">Start Free →</span></a>
-      <a href="#vendor" class="btn-lg-out"><span class="zh">供应商入驻</span><span class="en">Join as Vendor</span></a>
+    <div class="hero-tag reveal d1"><span class="en">AI Marketing Hub</span><span class="zh">AI 营销中台</span><span class="th">ศูนย์การตลาด AI</span></div>
+    <h1 class="reveal d2 en">Every Campaign,<br><em>Planned, Tracked</em><br>and Delivered.</h1>
+    <h1 class="reveal d2 zh">让每一个 Campaign，<br><em>从策划到收口</em><br>都有数可依。</h1>
+    <h1 class="reveal d2 th">ทุกแคมเปญ<em>วางแผน ติดตาม</em><br>และดำเนินการอย่างมีข้อมูล</h1>
+    <p class="hero-sub reveal d3 en">AIMKT is the AI-powered marketing hub built for brand teams — accelerate creative production, track every campaign in real time, and find the right vendors in one place.</p>
+    <p class="hero-sub reveal d3 zh">AIMKT 是专为品牌营销团队打造的 AI 中台 —— AI 工具提速创意生产，实时 Dashboard 追踪每条链路，供应商市场一键匹配合作伙伴。</p>
+    <p class="hero-sub reveal d3 th">AIMKT คือแพลตฟอร์มการตลาดที่ขับเคลื่อนด้วย AI สร้างขึ้นสำหรับทีมแบรนด์ — เร่งการผลิตครีเอทีฟ ติดตามแคมเปญแบบเรียลไทม์ และหาผู้ขายที่เหมาะสมได้ในที่เดียว</p>
+    <div class="hero-actions reveal d4">
+      <a href="#" class="btn-lg"><span class="en">Start Free →</span><span class="zh">品牌免费试用 →</span><span class="th">เริ่มต้นฟรี →</span></a>
+      <a href="vendors.html" class="btn-lg-out"><span class="en">Join as Vendor</span><span class="zh">供应商入驻</span><span class="th">เข้าร่วมเป็นผู้ขาย</span></a>
     </div>
-    <p class="hero-trust fu d4">
-      <span class="zh">已服务快消、美妆、电商品牌 · 200+ 供应商入驻</span>
+    <p class="hero-trust reveal d4">
       <span class="en">Trusted by FMCG, beauty & e-commerce brands · 200+ vendors</span>
+      <span class="zh">已服务快消、美妆、电商品牌 · 200+ 供应商入驻</span>
+      <span class="th">ได้รับความไว้วางใจจากแบรนด์ FMCG ความงาม และอีคอมเมิร์ซ · ผู้ขาย 200+</span>
     </p>
   </div>
   <div class="hero-panel">
     <div class="dash-row">
-      <span class="dash-title"><span class="zh">Campaign 概览 · Q2 2025</span><span class="en">Campaign Overview · Q2 2025</span></span>
-      <span class="live-badge">● Live</span>
+      <span class="dash-title"><span class="en">Campaign Overview · Q2 2025</span><span class="zh">Campaign 概览 · Q2 2025</span><span class="th">ภาพรวมแคมเปญ · Q2 2025</span></span>
+      <span class="live-badge">Live</span>
     </div>
     <div class="m-row">
-      <div class="mc"><div class="ml"><span class="zh">总曝光</span><span class="en">Impressions</span></div><div class="mv g">2.4M</div><div class="ms">↑ 18%</div></div>
-      <div class="mc"><div class="ml">ROI</div><div class="mv g">3.8×</div><div class="ms">↑ 0.6</div></div>
-      <div class="mc"><div class="ml"><span class="zh">合作供应商</span><span class="en">Vendors</span></div><div class="mv">12</div><div class="ms"><span class="zh">本季</span><span class="en">this qtr</span></div></div>
+      <div class="mc"><div class="ml"><span class="en">Impressions</span><span class="zh">总曝光</span><span class="th">อิมเพรสชัน</span></div><div class="mv g" data-count="2.4" data-suffix="M" data-decimals="1">0M</div><div class="ms">↑ 18%</div></div>
+      <div class="mc"><div class="ml">ROI</div><div class="mv g" data-count="3.8" data-suffix="×" data-decimals="1">0×</div><div class="ms">↑ 0.6</div></div>
+      <div class="mc"><div class="ml"><span class="en">Vendors</span><span class="zh">合作供应商</span><span class="th">ผู้ขาย</span></div><div class="mv" data-count="12" data-decimals="0">0</div><div class="ms"><span class="en">this qtr</span><span class="zh">本季</span><span class="th">ไตรมาสนี้</span></div></div>
     </div>
     <div class="chart-box">
-      <div class="cl"><span class="zh">各渠道 GMV 贡献</span><span class="en">GMV by Channel</span></div>
+      <div class="cl"><span class="en">GMV by Channel</span><span class="zh">各渠道 GMV 贡献</span><span class="th">GMV ตามช่องทาง</span></div>
       <div class="bars">
-        <div class="b" style="height:38%"></div><div class="b" style="height:55%"></div>
-        <div class="b hi" style="height:85%"></div><div class="b" style="height:65%"></div>
-        <div class="b" style="height:48%"></div><div class="b hi" style="height:90%"></div>
-        <div class="b" style="height:72%"></div>
+        <div class="b" data-h="38%"></div><div class="b" data-h="55%"></div>
+        <div class="b hi" data-h="85%"></div><div class="b" data-h="65%"></div>
+        <div class="b" data-h="48%"></div><div class="b hi" data-h="90%"></div>
+        <div class="b" data-h="72%"></div>
       </div>
     </div>
     <div class="chips">
-      <span class="chip"><span class="zh">小红书 KOL</span><span class="en">Xiaohongshu KOL</span></span>
-      <span class="chip"><span class="zh">抖音投放</span><span class="en">Douyin Ads</span></span>
-      <span class="chip"><span class="zh">线下活动</span><span class="en">Offline Events</span></span>
+      <span class="chip"><span class="en">Xiaohongshu KOL</span><span class="zh">小红书 KOL</span><span class="th">Xiaohongshu KOL</span></span>
+      <span class="chip"><span class="en">Douyin Ads</span><span class="zh">抖音投放</span><span class="th">Douyin Ads</span></span>
+      <span class="chip"><span class="en">Offline Events</span><span class="zh">线下活动</span><span class="th">อีเวนต์ออฟไลน์</span></span>
       <span class="chip">+9</span>
     </div>
   </div>
@@ -268,31 +89,33 @@ footer{background:var(--white);border-top:0.5px solid var(--border);padding:4rem
 
 <!-- PAIN -->
 <section>
-  <div class="shead">
-    <div class="eyebrow"><span class="zh">痛点共鸣</span><span class="en">Sound Familiar?</span></div>
-    <h2 class="sh2"><span class="zh">你是否也<em>深有同感</em></span><span class="en">We built this for<em> your pain points</em></span></h2>
+  <div class="shead reveal">
+    <div class="eyebrow"><span class="en">Sound Familiar?</span><span class="zh">痛点共鸣</span><span class="th">เคยเจอปัญหาเหล่านี้ไหม?</span></div>
+    <h2 class="sh2"><span class="en">We built this for <em>your pain points</em></span><span class="zh">你是否也<em>深有同感</em></span><span class="th">เราสร้างสิ่งนี้เพื่อ<em>แก้ปัญหาของคุณ</em></span></h2>
   </div>
   <div class="pain-grid">
-    <div class="pain-card">
-      <div class="aud br"><span class="zh">品牌营销团队</span><span class="en">Brand Marketing Teams</span></div>
-      <h3 class="pain-h zh">「策划散、数据乱、找供应商靠微信群」</h3>
+    <div class="pain-card reveal">
+      <div class="aud br"><span class="en">Brand Marketing Teams</span><span class="zh">品牌营销团队</span><span class="th">ทีมการตลาดแบรนด์</span></div>
       <h3 class="pain-h en">"Scattered briefs, siloed data, and vendor hunting on WeChat"</h3>
+      <h3 class="pain-h zh">「策划散、数据乱、找供应商靠微信群」</h3>
+      <h3 class="pain-h th">"Brief กระจัดกระจาย ข้อมูลแยกกัน หาผู้ขายผ่าน WeChat"</h3>
       <ul class="pain-list">
-        <li><span class="zh">每个 Campaign Brief 都要从头写，AI 工具七零八落</span><span class="en">Every brief written from scratch; AI tools scattered everywhere</span></li>
-        <li><span class="zh">小红书、抖音、线下数据分散在三个表格里</span><span class="en">XHS, Douyin and offline data living in three different spreadsheets</span></li>
-        <li><span class="zh">供应商合作全靠人脉，价格不透明，质量难把控</span><span class="en">Vendor sourcing relies on connections — opaque pricing, inconsistent quality</span></li>
-        <li><span class="zh">复盘报告要花两天，还总漏掉关键指标</span><span class="en">Post-campaign reports take two days and still miss key metrics</span></li>
+        <li><span class="en">Every brief written from scratch; AI tools scattered everywhere</span><span class="zh">每个 Campaign Brief 都要从头写，AI 工具七零八落</span><span class="th">เขียน Brief ทุกครั้งใหม่ตั้งแต่ต้น เครื่องมือ AI กระจัดกระจาย</span></li>
+        <li><span class="en">XHS, Douyin and offline data living in three different spreadsheets</span><span class="zh">小红书、抖音、线下数据分散在三个表格里</span><span class="th">ข้อมูล XHS, Douyin และออฟไลน์อยู่ในสเปรดชีตต่างหาก</span></li>
+        <li><span class="en">Vendor sourcing relies on connections — opaque pricing, inconsistent quality</span><span class="zh">供应商合作全靠人脉，价格不透明，质量难把控</span><span class="th">หาผู้ขายต้องพึ่งคอนเนกชัน ราคาไม่โปร่งใส คุณภาพไม่สม่ำเสมอ</span></li>
+        <li><span class="en">Post-campaign reports take two days and still miss key metrics</span><span class="zh">复盘报告要花两天，还总漏掉关键指标</span><span class="th">รายงานหลังแคมเปญใช้เวลาสองวัน และยังพลาดเมตริกสำคัญ</span></li>
       </ul>
     </div>
-    <div class="pain-card">
-      <div class="aud vd"><span class="zh">营销服务供应商</span><span class="en">Marketing Vendors</span></div>
-      <h3 class="pain-h zh">「获客贵、曝光少、品牌需求不透明」</h3>
+    <div class="pain-card reveal d1">
+      <div class="aud vd"><span class="en">Marketing Vendors</span><span class="zh">营销服务供应商</span><span class="th">ผู้ให้บริการการตลาด</span></div>
       <h3 class="pain-h en">"High CAC, low visibility, brand briefs out of nowhere"</h3>
+      <h3 class="pain-h zh">「获客贵、曝光少、品牌需求不透明」</h3>
+      <h3 class="pain-h th">"ต้นทุนการหาลูกค้าสูง การมองเห็นต่ำ ได้รับ Brief จากแบรนด์โดยไม่คาดคิด"</h3>
       <ul class="pain-list">
-        <li><span class="zh">找到目标品牌全靠展会和老客户介绍</span><span class="en">New clients only come from trade shows or referrals</span></li>
-        <li><span class="zh">没有专业平台展示历史案例和能力矩阵</span><span class="en">No professional platform to showcase capabilities and case studies</span></li>
-        <li><span class="zh">报价流程繁琐，来回沟通周期太长</span><span class="en">Quoting and negotiation cycles drag on for weeks</span></li>
-        <li><span class="zh">品牌预算和需求不透明，难以精准匹配</span><span class="en">Brand budgets are opaque — hard to qualify leads early</span></li>
+        <li><span class="en">New clients only come from trade shows or referrals</span><span class="zh">找到目标品牌全靠展会和老客户介绍</span><span class="th">ลูกค้าใหม่มาเฉพาะจากงานแสดงสินค้าหรือการแนะนำ</span></li>
+        <li><span class="en">No professional platform to showcase capabilities and case studies</span><span class="zh">没有专业平台展示历史案例和能力矩阵</span><span class="th">ไม่มีแพลตฟอร์มมืออาชีพให้แสดงผลงานและกรณีศึกษา</span></li>
+        <li><span class="en">Quoting and negotiation cycles drag on for weeks</span><span class="zh">报价流程繁琐，来回沟通周期太长</span><span class="th">กระบวนการเสนอราคาและเจรจาใช้เวลาหลายสัปดาห์</span></li>
+        <li><span class="en">Brand budgets are opaque — hard to qualify leads early</span><span class="zh">品牌预算和需求不透明，难以精准匹配</span><span class="th">งบประมาณแบรนด์ไม่โปร่งใส ยากที่จะคัดกรองลูกค้าเป้าหมาย</span></li>
       </ul>
     </div>
   </div>
@@ -300,269 +123,191 @@ footer{background:var(--white);border-top:0.5px solid var(--border);padding:4rem
 
 <hr class="div">
 
-<!-- FEATURES -->
-<section id="features">
-  <div class="shead">
-    <div class="eyebrow"><span class="zh">核心产品</span><span class="en">Core Product</span></div>
-    <h2 class="sh2"><span class="zh">三大模块，<em>一站解决</em></span><span class="en">Three modules,<em> one platform</em></span></h2>
-    <p class="slead zh">从创意生产到数据追踪，从供应商搜索到合同管理，AIMKT 打通营销全链路。</p>
+<!-- FEATURES PREVIEW -->
+<section>
+  <div class="shead reveal">
+    <div class="eyebrow"><span class="en">Core Product</span><span class="zh">核心产品</span><span class="th">ผลิตภัณฑ์หลัก</span></div>
+    <h2 class="sh2"><span class="en">Three modules, <em>one platform</em></span><span class="zh">三大模块，<em>一站解决</em></span><span class="th">สามโมดูล<em>หนึ่งแพลตฟอร์ม</em></span></h2>
     <p class="slead en">From creative production to campaign analytics, from vendor discovery to contract management — AIMKT connects every step.</p>
+    <p class="slead zh">从创意生产到数据追踪，从供应商搜索到合同管理，AIMKT 打通营销全链路。</p>
+    <p class="slead th">ตั้งแต่การผลิตครีเอทีฟไปจนถึงการวิเคราะห์แคมเปญ ตั้งแต่การค้นหาผู้ขายไปจนถึงการจัดการสัญญา AIMKT เชื่อมโยงทุกขั้นตอน</p>
   </div>
-  <div class="feat-wrap">
-
-    <div class="feat">
-      <div>
-        <div class="fn">01</div>
-        <h3 class="fh zh">AI 工具套件<br>你的营销 AI 助理</h3>
-        <h3 class="fh en">AI Toolkit<br>Your marketing co-pilot</h3>
-        <p class="fd zh">从 Campaign 策划到创意文案、投放策略、竞品洞察，一套 AI 工具贯穿全流程，平均节省 60% 的 Brief 制作时间。</p>
-        <p class="fd en">From campaign briefs to creative copy, media strategy, and competitor insights. Teams save 60% of brief-writing time on average.</p>
-        <div class="pills">
-          <span class="pill zh">Brief 生成</span><span class="pill en">Brief Generator</span>
-          <span class="pill zh">创意文案</span><span class="pill en">Creative Copy</span>
-          <span class="pill zh">投放策略</span><span class="pill en">Media Strategy</span>
-          <span class="pill zh">竞品分析</span><span class="pill en">Competitor Analysis</span>
-        </div>
-      </div>
-      <div class="fpanel">
-        <div class="ai-tag">AI generating...</div>
-        <div class="ai-q zh">📝 为新品护肤系列生成小红书 Campaign Brief，目标：25-35 岁都市女性，预算 50 万，6 周。</div>
-        <div class="ai-q en">📝 Generate a Xiaohongshu Campaign Brief for our new skincare line. Target: urban women 25–35. Budget ¥500K, 6 weeks.</div>
-        <div class="ai-a">
-          <div class="ai-tag">AIMKT AI</div>
-          <strong style="font-size:13px;color:var(--accent)"><span class="zh">「裸感新生」Campaign Brief</span><span class="en">"Bare Glow" Campaign Brief</span></strong><br><br>
-          <span class="zh">核心洞察：「祛滤镜」内容互动率高出行业均值 2.4×。推荐节奏：第 1-2 周素人铺量 → 第 3-4 周 KOL 引爆 → 第 5-6 周品牌收割…</span>
-          <span class="en">Key insight: unfiltered content drives 2.4× higher engagement. Flow: Wk 1-2 seeding → Wk 3-4 KOL amplification → Wk 5-6 conversion push…</span>
-        </div>
-      </div>
+  <div class="proof-grid">
+    <div class="proof-card reveal">
+      <div class="ptag br"><span class="en">01</span></div>
+      <h3 class="pain-h en">AI Toolkit</h3>
+      <h3 class="pain-h zh">AI 工具套件</h3>
+      <h3 class="pain-h th">ชุดเครื่องมือ AI</h3>
+      <p class="fd en">Your marketing co-pilot. Generate briefs, creative copy, media strategies and competitor analysis — save 60% time.</p>
+      <p class="fd zh">你的营销 AI 助理。Brief 生成、创意文案、投放策略、竞品洞察，贯穿全流程。</p>
+      <p class="fd th">ผู้ช่วยการตลาด AI ของคุณ สร้าง Brief คัดลอกครีเอทีฟ กลยุทธ์สื่อ และวิเคราะห์คู่แข่ง ประหยัดเวลา 60%</p>
+      <a href="features.html" class="btn-ghost" style="margin-top:1rem"><span class="en">Learn more →</span><span class="zh">了解更多 →</span><span class="th">เรียนรู้เพิ่มเติม →</span></a>
     </div>
-
-    <div class="feat rev">
-      <div>
-        <div class="fn">02</div>
-        <h3 class="fh zh">Campaign Dashboard<br>所有数据，一屏看完</h3>
-        <h3 class="fh en">Campaign Dashboard<br>Every metric, one screen</h3>
-        <p class="fd zh">跨渠道数据自动聚合，实时 ROI 追踪，供应商执行进度一目了然。不再需要每周手动整合十几张表格。</p>
-        <p class="fd en">Auto-aggregate data across all channels. Track ROI in real time. Monitor vendor delivery at a glance. No more weekly spreadsheet marathons.</p>
-        <div class="pills">
-          <span class="pill zh">多渠道聚合</span><span class="pill en">Cross-channel Sync</span>
-          <span class="pill zh">实时 ROI</span><span class="pill en">Real-time ROI</span>
-          <span class="pill zh">供应商进度</span><span class="pill en">Vendor Tracking</span>
-          <span class="pill zh">报表导出</span><span class="pill en">Report Export</span>
-        </div>
-      </div>
-      <div class="fpanel">
-        <div class="m-row" style="margin-bottom:1rem">
-          <div class="mc"><div class="ml"><span class="zh">点击率</span><span class="en">CTR</span></div><div class="mv g">4.7%</div><div class="ms">2.1× avg</div></div>
-          <div class="mc"><div class="ml"><span class="zh">转化成本</span><span class="en">CPA</span></div><div class="mv">¥32</div><div class="ms">↓ 18%</div></div>
-          <div class="mc"><div class="ml">GMV</div><div class="mv g">¥84万</div><div class="ms"><span class="zh">本月</span><span class="en">this mo.</span></div></div>
-        </div>
-        <div class="chart-box">
-          <div class="cl"><span class="zh">渠道效果对比</span><span class="en">Channel Performance</span></div>
-          <div class="bars">
-            <div class="b hi" style="height:80%"></div><div class="b" style="height:45%"></div>
-            <div class="b hi" style="height:70%"></div><div class="b" style="height:30%"></div>
-            <div class="b" style="height:60%"></div>
-          </div>
-        </div>
-      </div>
+    <div class="proof-card reveal d1">
+      <div class="ptag vd"><span class="en">02</span></div>
+      <h3 class="pain-h en">Campaign Dashboard</h3>
+      <h3 class="pain-h zh">Campaign Dashboard</h3>
+      <h3 class="pain-h th">แดชบอร์ดแคมเปญ</h3>
+      <p class="fd en">Auto-aggregate cross-channel data. Track ROI in real time. Monitor vendor delivery at a glance.</p>
+      <p class="fd zh">跨渠道数据自动聚合，实时 ROI 追踪，供应商执行进度一目了然。</p>
+      <p class="fd th">รวบรวมข้อมูลข้ามช่องทางอัตโนมัติ ติดตาม ROI แบบเรียลไทม์ ตรวจสอบการดำเนินงานผู้ขายได้ในพริบตา</p>
+      <a href="features.html" class="btn-ghost" style="margin-top:1rem"><span class="en">Learn more →</span><span class="zh">了解更多 →</span><span class="th">เรียนรู้เพิ่มเติม →</span></a>
     </div>
-
-    <div class="feat">
-      <div>
-        <div class="fn">03</div>
-        <h3 class="fh zh">供应商市场<br>找对的人，做对的事</h3>
-        <h3 class="fh en">Vendor Marketplace<br>Find the right partner, fast</h3>
-        <p class="fd zh">按服务类型、行业经验、预算、评分精准筛选。查看案例，一键发送询价或直接共享 Campaign Brief。</p>
-        <p class="fd en">Filter by service type, industry expertise, budget, and ratings. Browse case studies, send RFQs, or share a brief directly — one click.</p>
-        <div class="pills">
-          <span class="pill zh">精准筛选</span><span class="pill en">Smart Filtering</span>
-          <span class="pill zh">案例评分</span><span class="pill en">Ratings & Cases</span>
-          <span class="pill zh">在线询价</span><span class="pill en">Online RFQ</span>
-          <span class="pill zh">Brief 直发</span><span class="pill en">Brief Sharing</span>
-        </div>
-      </div>
-      <div class="fpanel">
-        <div class="dash-row" style="margin-bottom:1rem">
-          <span class="dash-title"><span class="zh">推荐供应商 · KOL 机构</span><span class="en">Recommended · KOL Agencies</span></span>
-          <span style="font-size:12px;color:var(--ink-muted)">48</span>
-        </div>
-        <div class="v-list">
-          <div class="v-item"><div><div class="vn">星图传媒</div><div class="vt"><span class="zh">KOL 矩阵 · 美妆 / 生活方式</span><span class="en">KOL network · Beauty / Lifestyle</span></div></div><span class="vs">★ 4.9</span></div>
-          <div class="v-item"><div><div class="vn">洛克互动</div><div class="vt"><span class="zh">抖音投放 · 快消 / 食品</span><span class="en">Douyin Ads · FMCG / Food</span></div></div><span class="vs">★ 4.8</span></div>
-          <div class="v-item"><div><div class="vn">新浪潮活动</div><div class="vt"><span class="zh">线下体验 · 奢侈品 / 时尚</span><span class="en">Offline Events · Luxury / Fashion</span></div></div><span class="vs">★ 4.7</span></div>
-        </div>
-      </div>
+    <div class="proof-card reveal d2">
+      <div class="ptag br"><span class="en">03</span></div>
+      <h3 class="pain-h en">Vendor Marketplace</h3>
+      <h3 class="pain-h zh">供应商市场</h3>
+      <h3 class="pain-h th">ตลาดผู้ขาย</h3>
+      <p class="fd en">Filter by service, expertise, budget & ratings. Browse cases, send RFQs, or share a brief — one click.</p>
+      <p class="fd zh">按服务类型、行业经验、预算、评分精准筛选。一键询价或直发 Brief。</p>
+      <p class="fd th">กรองตามบริการ ความเชี่ยวชาญ งบประมาณ และคะแนน ส่ง RFQ หรือแชร์ Brief ได้ในคลิกเดียว</p>
+      <a href="vendors.html" class="btn-ghost" style="margin-top:1rem"><span class="en">Learn more →</span><span class="zh">了解更多 →</span><span class="th">เรียนรู้เพิ่มเติม →</span></a>
     </div>
-
   </div>
 </section>
 
 <hr class="div">
-
-<!-- VENDOR DARK -->
-<section id="vendor" style="padding-bottom:0">
-  <div class="vd-box">
-    <div>
-      <div class="eyebrow" style="color:#6B5EE8"><span class="zh">供应商入驻</span><span class="en">For Vendors</span></div>
-      <h2 class="sh2" style="color:#fff"><span class="zh">让品牌<br><em style="color:#9B8FFF">主动来找你</em></span><span class="en">Let brands<br><em style="color:#9B8FFF">come to you</em></span></h2>
-      <p class="slead" style="color:rgba(255,255,255,.6)">
-        <span class="zh">创建你的能力主页，展示历史案例，接收定向需求推送。在 AIMKT 上，好的供应商不需要主动找客户。</span>
-        <span class="en">Build your vendor profile, showcase past work, and receive inbound leads matched to your expertise. On AIMKT, great vendors don't need to cold-pitch.</span>
-      </p>
-      <a href="#" class="btn-wh"><span class="zh">立即免费入驻 →</span><span class="en">Join Free →</span></a>
-    </div>
-    <div class="vstep">
-      <div class="vstep-item">
-        <div class="snum">1</div>
-        <div class="stxt"><strong><span class="zh">注册并创建能力主页</span><span class="en">Register & build your profile</span></strong><span class="zh">填写服务类型、行业经验，上传历史案例作品集</span><span class="en">List your services, industry focus, and upload portfolio case studies</span></div>
-      </div>
-      <div class="vstep-item">
-        <div class="snum">2</div>
-        <div class="stxt"><strong><span class="zh">接收定向品牌需求</span><span class="en">Receive matched brand leads</span></strong><span class="zh">平台根据你的标签自动匹配并推送品牌询价</span><span class="en">AIMKT matches and pushes inbound RFQs based on your profile</span></div>
-      </div>
-      <div class="vstep-item">
-        <div class="snum">3</div>
-        <div class="stxt"><strong><span class="zh">在线报价与合作管理</span><span class="en">Quote, contract & collaborate</span></strong><span class="zh">一站式完成报价、合同、执行进度汇报全流程</span><span class="en">Handle quoting, contracts, and delivery tracking in one place</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- PROOF -->
 <section>
-  <div class="shead">
-    <div class="eyebrow"><span class="zh">用户评价</span><span class="en">What users say</span></div>
-    <h2 class="sh2"><span class="zh">他们用 AIMKT<em>做到了什么</em></span><span class="en">Results teams<em> are seeing</em></span></h2>
+  <div class="shead reveal">
+    <div class="eyebrow"><span class="en">What users say</span><span class="zh">用户评价</span><span class="th">สิ่งที่ผู้ใช้พูด</span></div>
+    <h2 class="sh2"><span class="en">Results teams <em>are seeing</em></span><span class="zh">他们用 AIMKT<em>做到了什么</em></span><span class="th">ผลลัพธ์ที่<em>ทีมต่างได้รับ</em></span></h2>
   </div>
   <div class="proof-grid">
-    <div class="proof-card">
-      <div class="ptag br"><span class="zh">品牌</span><span class="en">Brand</span></div>
-      <p class="pq zh">「以前做 Campaign 复盘要花整整两天，现在 AIMKT Dashboard 自动生成，半小时搞定，数据还更准。」</p>
+    <div class="proof-card reveal">
+      <div class="ptag br"><span class="en">Brand</span><span class="zh">品牌</span><span class="th">แบรนด์</span></div>
       <p class="pq en">"Post-campaign reports used to take two full days. Now AIMKT auto-generates them in 30 minutes — and the data is more accurate."</p>
-      <div class="pa"><div class="av a1">李</div><div><div class="an">Li Xiaotong</div><div class="ar"><span class="zh">某快消品牌 CMO</span><span class="en">CMO, FMCG Brand</span></div></div></div>
+      <p class="pq zh">「以前做 Campaign 复盘要花整整两天，现在 AIMKT Dashboard 自动生成，半小时搞定，数据还更准。」</p>
+      <p class="pq th">"รายงานหลังแคมเปญเคยใช้เวลาสองวันเต็ม ตอนนี้ AIMKT สร้างอัตโนมัติใน 30 นาที และข้อมูลยังแม่นยำกว่า"</p>
+      <div class="pa"><div class="av a1">L</div><div><div class="an">Li Xiaotong</div><div class="ar en">CMO, FMCG Brand</div><div class="ar zh">某快消品牌 CMO</div><div class="ar th">CMO, แบรนด์ FMCG</div></div></div>
     </div>
-    <div class="proof-card">
-      <div class="ptag vd"><span class="zh">供应商</span><span class="en">Vendor</span></div>
-      <p class="pq zh">「入驻 AIMKT 三个月，主动找到我们的品牌询价比以前展会一整年还多，而且需求都很精准。」</p>
-      <p class="pq en">"Three months after joining AIMKT, we received more qualified leads than in a full year of trade shows — and conversion rates are far higher."</p>
-      <div class="pa"><div class="av a2">陈</div><div><div class="an">Chen Mingyuan</div><div class="ar"><span class="zh">星图传媒 CEO</span><span class="en">CEO, Xintu Media</span></div></div></div>
+    <div class="proof-card reveal d1">
+      <div class="ptag vd"><span class="en">Vendor</span><span class="zh">供应商</span><span class="th">ผู้ขาย</span></div>
+      <p class="pq en">"Three months after joining AIMKT, we received more qualified leads than in a full year of trade shows."</p>
+      <p class="pq zh">「入驻 AIMKT 三个月，主动找到我们的品牌询价比以前展会一整年还多。」</p>
+      <p class="pq th">"สามเดือนหลังเข้าร่วม AIMKT เราได้รับลูกค้าเป้าหมายมากกว่างานแสดงสินค้าทั้งปี"</p>
+      <div class="pa"><div class="av a2">C</div><div><div class="an">Chen Mingyuan</div><div class="ar en">CEO, Xintu Media</div><div class="ar zh">星图传媒 CEO</div><div class="ar th">CEO, Xintu Media</div></div></div>
     </div>
-    <div class="proof-card">
-      <div class="ptag br"><span class="zh">品牌</span><span class="en">Brand</span></div>
+    <div class="proof-card reveal d2">
+      <div class="ptag br"><span class="en">Brand</span><span class="zh">品牌</span><span class="th">แบรนด์</span></div>
+      <p class="pq en">"The AI toolkit cut our brief-writing from 3 days to 2 hours. The team finally has bandwidth for creative work that matters."</p>
       <p class="pq zh">「AI 工具帮我们把 Brief 撰写时间从 3 天压缩到 2 小时，团队终于有时间做真正有价值的工作了。」</p>
-      <p class="pq en">"The AI toolkit cut our brief-writing from 3 days to 2 hours. The team finally has bandwidth for the creative work that actually matters."</p>
-      <div class="pa"><div class="av a3">王</div><div><div class="an">Wang Siying</div><div class="ar"><span class="zh">美妆品牌市场总监</span><span class="en">Marketing Director, Beauty Brand</span></div></div></div>
+      <p class="pq th">"ชุดเครื่องมือ AI ลดเวลาเขียน Brief จาก 3 วันเหลือ 2 ชั่วโมง ทีมมีเวลาทำงานสร้างสรรค์ที่สำคัญจริงๆ"</p>
+      <div class="pa"><div class="av a3">W</div><div><div class="an">Wang Siying</div><div class="ar en">Marketing Director, Beauty Brand</div><div class="ar zh">美妆品牌市场总监</div><div class="ar th">ผู้อำนวยการการตลาด, แบรนด์ความงาม</div></div></div>
     </div>
   </div>
 </section>
 
 <hr class="div">
 
-<!-- PRICING -->
+<!-- PRICING PREVIEW -->
 <section id="pricing">
-  <div class="shead">
-    <div class="eyebrow"><span class="zh">定价方案</span><span class="en">Pricing</span></div>
-    <h2 class="sh2"><span class="zh">按需付费，<em>从试用开始</em></span><span class="en">Start free,<em> scale as you grow</em></span></h2>
-    <p class="slead zh">供应商基础入驻永久免费。品牌团队免费试用 14 天，无需信用卡。</p>
-    <p class="slead en">Vendor listing is always free. Brand teams get a 14-day free trial — no credit card required.</p>
+  <div class="shead reveal">
+    <div class="eyebrow"><span class="en">Pricing</span><span class="zh">定价方案</span><span class="th">ราคา</span></div>
+    <h2 class="sh2"><span class="en">Start free, <em>scale as you grow</em></span><span class="zh">按需付费，<em>从试用开始</em></span><span class="th">เริ่มต้นฟรี<em>ขยายตามการเติบโต</em></span></h2>
   </div>
   <div class="price-grid">
-    <div class="pc">
-      <div class="pname"><span class="zh">免费版</span><span class="en">Free</span></div>
+    <div class="pc reveal">
+      <div class="pname"><span class="en">Free</span><span class="zh">免费版</span><span class="th">ฟรี</span></div>
       <div class="pprice"><span>¥</span>0</div>
-      <div class="pper"><span class="zh">永久免费 · 最多 2 个用户</span><span class="en">Forever free · up to 2 users</span></div>
+      <div class="pper"><span class="en">Forever free · up to 2 users</span><span class="zh">永久免费 · 最多 2 个用户</span><span class="th">ฟรีตลอดไป · สูงสุด 2 ผู้ใช้</span></div>
       <ul class="pf">
-        <li><span class="zh">AI 工具基础功能（50 次/月）</span><span class="en">AI tools basic (50 runs/mo)</span></li>
-        <li><span class="zh">1 个 Campaign Dashboard</span><span class="en">1 Campaign Dashboard</span></li>
-        <li><span class="zh">供应商市场浏览</span><span class="en">Vendor marketplace access</span></li>
-        <li><span class="zh">基础报表导出</span><span class="en">Basic report export</span></li>
+        <li><span class="en">AI tools basic (50 runs/mo)</span><span class="zh">AI 工具基础功能（50 次/月）</span><span class="th">เครื่องมือ AI พื้นฐาน (50 ครั้ง/เดือน)</span></li>
+        <li><span class="en">1 Campaign Dashboard</span><span class="zh">1 个 Campaign Dashboard</span><span class="th">1 แดชบอร์ดแคมเปญ</span></li>
+        <li><span class="en">Vendor marketplace access</span><span class="zh">供应商市场浏览</span><span class="th">เข้าถึงตลาดผู้ขาย</span></li>
       </ul>
-      <a href="#" class="pbtn"><span class="zh">免费开始</span><span class="en">Get Started</span></a>
+      <a href="#" class="pbtn"><span class="en">Get Started</span><span class="zh">免费开始</span><span class="th">เริ่มต้น</span></a>
     </div>
-    <div class="pc feat">
-      <div class="pbadge"><span class="zh">最受欢迎</span><span class="en">Most Popular</span></div>
-      <div class="pname"><span class="zh">专业版</span><span class="en">Pro</span></div>
+    <div class="pc feat reveal d1">
+      <div class="pbadge"><span class="en">Most Popular</span><span class="zh">最受欢迎</span><span class="th">ยอดนิยม</span></div>
+      <div class="pname"><span class="en">Pro</span><span class="zh">专业版</span><span class="th">โปร</span></div>
       <div class="pprice"><span>¥</span>2,999</div>
-      <div class="pper"><span class="zh">/ 月 · 最多 10 个用户</span><span class="en">/ month · up to 10 users</span></div>
+      <div class="pper"><span class="en">/ month · up to 10 users</span><span class="zh">/ 月 · 最多 10 个用户</span><span class="th">/ เดือน · สูงสุด 10 ผู้ใช้</span></div>
       <ul class="pf">
-        <li><span class="zh">AI 工具无限次使用</span><span class="en">Unlimited AI tool runs</span></li>
-        <li><span class="zh">无限 Campaign Dashboard</span><span class="en">Unlimited dashboards</span></li>
-        <li><span class="zh">多渠道数据自动聚合</span><span class="en">Cross-channel data sync</span></li>
-        <li><span class="zh">供应商在线询价与管理</span><span class="en">Vendor RFQ & management</span></li>
-        <li><span class="zh">自定义品牌报表模板</span><span class="en">Custom branded report templates</span></li>
+        <li><span class="en">Unlimited AI tool runs</span><span class="zh">AI 工具无限次使用</span><span class="th">ใช้เครื่องมือ AI ไม่จำกัด</span></li>
+        <li><span class="en">Unlimited dashboards</span><span class="zh">无限 Campaign Dashboard</span><span class="th">แดชบอร์ดไม่จำกัด</span></li>
+        <li><span class="en">Cross-channel data sync</span><span class="zh">多渠道数据自动聚合</span><span class="th">ซิงค์ข้อมูลข้ามช่องทาง</span></li>
+        <li><span class="en">Vendor RFQ & management</span><span class="zh">供应商在线询价与管理</span><span class="th">RFQ และการจัดการผู้ขาย</span></li>
       </ul>
-      <a href="#" class="pbtn"><span class="zh">立即订阅</span><span class="en">Subscribe Now</span></a>
+      <a href="#" class="pbtn"><span class="en">Subscribe Now</span><span class="zh">立即订阅</span><span class="th">สมัครสมาชิก</span></a>
     </div>
-    <div class="pc">
-      <div class="pname"><span class="zh">企业版</span><span class="en">Enterprise</span></div>
-      <div class="pprice" style="font-size:30px;padding-top:6px"><span class="zh">定制</span><span class="en">Custom</span></div>
-      <div class="pper"><span class="zh">按席位 · 无上限用户</span><span class="en">Per seat · unlimited users</span></div>
+    <div class="pc reveal d2">
+      <div class="pname"><span class="en">Enterprise</span><span class="zh">企业版</span><span class="th">องค์กร</span></div>
+      <div class="pprice" style="font-size:30px;padding-top:6px"><span class="en">Custom</span><span class="zh">定制</span><span class="th">กำหนดเอง</span></div>
+      <div class="pper"><span class="en">Per seat · unlimited users</span><span class="zh">按席位 · 无上限用户</span><span class="th">ต่อที่นั่ง · ผู้ใช้ไม่จำกัด</span></div>
       <ul class="pf">
-        <li><span class="zh">专业版全部功能</span><span class="en">Everything in Pro</span></li>
-        <li><span class="zh">私有化部署可选</span><span class="en">Private deployment option</span></li>
-        <li><span class="zh">数据 API 对接</span><span class="en">Data API integration</span></li>
-        <li><span class="zh">专属客户成功经理</span><span class="en">Dedicated success manager</span></li>
+        <li><span class="en">Everything in Pro</span><span class="zh">专业版全部功能</span><span class="th">ทุกอย่างในแพ็คเกจ Pro</span></li>
+        <li><span class="en">Private deployment option</span><span class="zh">私有化部署可选</span><span class="th">ตัวเลือกการปรับใช้แบบส่วนตัว</span></li>
+        <li><span class="en">Data API integration</span><span class="zh">数据 API 对接</span><span class="th">เชื่อมต่อ Data API</span></li>
         <li>SLA 99.9%</li>
       </ul>
-      <a href="#" class="pbtn"><span class="zh">联系我们</span><span class="en">Contact Us</span></a>
+      <a href="#" class="pbtn"><span class="en">Contact Us</span><span class="zh">联系我们</span><span class="th">ติดต่อเรา</span></a>
     </div>
   </div>
+  <p style="text-align:center;margin-top:1.5rem;font-size:14px;color:var(--ink-muted)">
+    <span class="en">14-day free trial for brands. Always free for vendors. No credit card needed.</span>
+    <span class="zh">品牌免费试用 14 天，供应商永久免费入驻，无需信用卡。</span>
+    <span class="th">ทดลองใช้ฟรี 14 วันสำหรับแบรนด์ ฟรีตลอดไปสำหรับผู้ขาย ไม่ต้องใช้บัตรเครดิต</span>
+  </p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="fi">
-    <div class="fcta">
+    <div class="fcta reveal">
       <div class="footer-cta-text">
-        <h3><span class="zh">现在开始，下一个 Campaign 就用 AIMKT</span><span class="en">Your next campaign starts here</span></h3>
-        <p><span class="zh">品牌免费试用 14 天，供应商永久免费入驻，无需信用卡。</span><span class="en">14-day free trial for brands. Always free for vendors. No credit card needed.</span></p>
+        <h3><span class="en">Your next campaign starts here</span><span class="zh">现在开始，下一个 Campaign 就用 AIMKT</span><span class="th">แคมเปญถัดไปของคุณเริ่มที่นี่</span></h3>
+        <p><span class="en">14-day free trial for brands. Always free for vendors.</span><span class="zh">品牌免费试用 14 天，供应商永久免费入驻。</span><span class="th">ทดลองใช้ฟรี 14 วันสำหรับแบรนด์ ฟรีตลอดไปสำหรับผู้ขาย</span></p>
       </div>
       <div class="fcta-btns">
-        <a href="#" class="btn-primary btn-lg"><span class="zh">品牌免费试用</span><span class="en">Start Free Trial</span></a>
-        <a href="#vendor" class="btn-lg-out"><span class="zh">供应商入驻</span><span class="en">Join as Vendor</span></a>
+        <a href="#" class="btn-primary btn-lg"><span class="en">Start Free Trial</span><span class="zh">品牌免费试用</span><span class="th">ทดลองใช้ฟรี</span></a>
+        <a href="vendors.html" class="btn-lg-out"><span class="en">Join as Vendor</span><span class="zh">供应商入驻</span><span class="th">เข้าร่วมเป็นผู้ขาย</span></a>
       </div>
     </div>
     <div class="ftop">
       <div>
         <div class="flogo"><em>AI</em>MKT</div>
-        <p class="fdesc zh">AI 营销中台，连接品牌与供应商。让每一个 Campaign 都有数可依。</p>
         <p class="fdesc en">The AI marketing hub connecting brands and vendors. Every campaign, powered by data.</p>
+        <p class="fdesc zh">AI 营销中台，连接品牌与供应商。让每一个 Campaign 都有数可依。</p>
+        <p class="fdesc th">ศูนย์การตลาด AI เชื่อมโยงแบรนด์และผู้ขาย ทุกแคมเปญขับเคลื่อนด้วยข้อมูล</p>
       </div>
       <div>
-        <div class="fct"><span class="zh">产品</span><span class="en">Product</span></div>
+        <div class="fct"><span class="en">Product</span><span class="zh">产品</span><span class="th">ผลิตภัณฑ์</span></div>
         <ul class="flinks">
-          <li><a href="#"><span class="zh">AI 工具套件</span><span class="en">AI Toolkit</span></a></li>
-          <li><a href="#">Campaign Dashboard</a></li>
-          <li><a href="#"><span class="zh">供应商市场</span><span class="en">Vendor Marketplace</span></a></li>
-          <li><a href="#pricing"><span class="zh">定价方案</span><span class="en">Pricing</span></a></li>
+          <li><a href="features.html"><span class="en">AI Toolkit</span><span class="zh">AI 工具套件</span><span class="th">ชุดเครื่องมือ AI</span></a></li>
+          <li><a href="features.html"><span class="en">Campaign Dashboard</span><span class="zh">Campaign Dashboard</span><span class="th">แดชบอร์ดแคมเปญ</span></a></li>
+          <li><a href="vendors.html"><span class="en">Vendor Marketplace</span><span class="zh">供应商市场</span><span class="th">ตลาดผู้ขาย</span></a></li>
+          <li><a href="pricing.html"><span class="en">Pricing</span><span class="zh">定价方案</span><span class="th">ราคา</span></a></li>
         </ul>
       </div>
       <div>
-        <div class="fct"><span class="zh">供应商</span><span class="en">Vendors</span></div>
+        <div class="fct"><span class="en">Vendors</span><span class="zh">供应商</span><span class="th">ผู้ขาย</span></div>
         <ul class="flinks">
-          <li><a href="#vendor"><span class="zh">立即入驻</span><span class="en">Join Now</span></a></li>
-          <li><a href="#"><span class="zh">入驻指南</span><span class="en">Onboarding Guide</span></a></li>
-          <li><a href="#"><span class="zh">增值曝光套餐</span><span class="en">Premium Listings</span></a></li>
-          <li><a href="#"><span class="zh">成功案例</span><span class="en">Success Stories</span></a></li>
+          <li><a href="vendors.html"><span class="en">Join Now</span><span class="zh">立即入驻</span><span class="th">เข้าร่วม</span></a></li>
+          <li><a href="#"><span class="en">Onboarding Guide</span><span class="zh">入驻指南</span><span class="th">คู่มือการเข้าร่วม</span></a></li>
+          <li><a href="#"><span class="en">Premium Listings</span><span class="zh">增值曝光套餐</span><span class="th">รายการพรีเมียม</span></a></li>
         </ul>
       </div>
       <div>
-        <div class="fct"><span class="zh">公司</span><span class="en">Company</span></div>
+        <div class="fct"><span class="en">Company</span><span class="zh">公司</span><span class="th">บริษัท</span></div>
         <ul class="flinks">
-          <li><a href="#"><span class="zh">关于我们</span><span class="en">About</span></a></li>
-          <li><a href="#"><span class="zh">营销洞察博客</span><span class="en">Blog</span></a></li>
-          <li><a href="#"><span class="zh">联系我们</span><span class="en">Contact</span></a></li>
-          <li><a href="#"><span class="zh">隐私政策</span><span class="en">Privacy Policy</span></a></li>
+          <li><a href="about.html"><span class="en">About</span><span class="zh">关于我们</span><span class="th">เกี่ยวกับเรา</span></a></li>
+          <li><a href="culture.html"><span class="en">Culture</span><span class="zh">企业文化</span><span class="th">วัฒนธรรม</span></a></li>
+          <li><a href="sustainability.html"><span class="en">Sustainability</span><span class="zh">可持续发展</span><span class="th">ความยั่งยืน</span></a></li>
+          <li><a href="about.html"><span class="en">Contact</span><span class="zh">联系我们</span><span class="th">ติดต่อเรา</span></a></li>
         </ul>
       </div>
     </div>
     <div class="fbot">
-      <span>© 2025 AIMKT. <span class="zh">保留所有权利。</span><span class="en">All rights reserved.</span></span>
+      <span>© 2025 AIMKT. <span class="en">All rights reserved.</span><span class="zh">保留所有权利。</span><span class="th">สงวนลิขสิทธิ์</span></span>
       <span>aimkt.com</span>
     </div>
   </div>
 </footer>
 
+<button class="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="js/main.js"></script>
 </body>
 </html>
