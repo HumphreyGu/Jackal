@@ -3,8 +3,8 @@ const nav = document.querySelector('nav');
 const backToTop = document.querySelector('.back-to-top');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
-  nav.classList.toggle('scrolled', y > 60);
-  if (backToTop) backToTop.classList.toggle('visible', y > 400);
+  nav.classList.toggle('scrolled', y > 80);
+  if (backToTop) backToTop.classList.toggle('visible', y > 500);
 }, { passive: true });
 
 // ===== BACK TO TOP =====
@@ -68,7 +68,7 @@ if (langBtn) {
   }
 }
 
-// ===== SCROLL REVEAL (Intersection Observer) =====
+// ===== SCROLL REVEAL =====
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
@@ -78,22 +78,8 @@ if (revealEls.length) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => observer.observe(el));
-}
-
-// ===== STAGGER GRID ANIMATION =====
-const staggerGrids = document.querySelectorAll('.stagger-grid');
-if (staggerGrids.length) {
-  const gridObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        gridObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  staggerGrids.forEach(g => gridObserver.observe(g));
 }
 
 // ===== CHART BAR ANIMATION =====
@@ -134,9 +120,8 @@ function animateCounter(el) {
   const prefix = el.dataset.prefix || '';
   const suffix = el.dataset.suffix || '';
   const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
-  const duration = 1400;
+  const duration = 1600;
   const start = performance.now();
-
   function update(now) {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
@@ -156,7 +141,7 @@ if (vsteps.length) {
       if (entry.isIntersecting) {
         const items = entry.target.parentElement.querySelectorAll('.vstep-item');
         items.forEach((item, i) => {
-          setTimeout(() => item.classList.add('visible'), i * 180);
+          setTimeout(() => item.classList.add('visible'), i * 200);
         });
         stepObserver.unobserve(entry.target);
       }
@@ -167,33 +152,6 @@ if (vsteps.length) {
     stepObserver.observe(el);
   });
 }
-
-// ===== PARALLAX ORB MOVEMENT =====
-let ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      const scrollY = window.scrollY;
-      document.querySelectorAll('.orb').forEach((orb, i) => {
-        const speed = 0.03 + (i * 0.015);
-        const y = scrollY * speed;
-        orb.style.transform = `translateY(${y}px)`;
-      });
-      ticking = false;
-    });
-    ticking = true;
-  }
-}, { passive: true });
-
-// ===== GRADIENT BORDER ANIMATION ON CARDS =====
-document.querySelectorAll('.pain-card, .proof-card, .content-card').forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    card.style.borderColor = 'rgba(61,47,212,0.15)';
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.borderColor = '';
-  });
-});
 
 // ===== SMOOTH ANCHOR SCROLLING =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -207,3 +165,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ===== SUBTLE IMAGE PARALLAX =====
+const parallaxImgs = document.querySelectorAll('.e-img img, .gallery-item img');
+if (parallaxImgs.length) {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        parallaxImgs.forEach(img => {
+          const rect = img.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const center = rect.top + rect.height / 2;
+            const offset = (center - window.innerHeight / 2) * 0.03;
+            img.style.transform = `translateY(${offset}px)`;
+          }
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
