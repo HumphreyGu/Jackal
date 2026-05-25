@@ -103,7 +103,7 @@ nav.scrolled .hamburger span{background:var(--ink)}
 .hero-trust{margin-top:3.5rem;font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase}
 
 /* ===== MARQUEE ===== */
-.marquee-section{overflow:hidden;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--white)}
+.marquee-section{overflow:hidden;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--white);position:relative;z-index:1}
 .marquee-track{display:flex;animation:marqueeScroll 45s linear infinite}
 .marquee-content{display:flex;gap:0;flex-shrink:0;font-family:'DM Serif Display',serif;font-size:clamp(20px,2.8vw,32px);color:var(--ink-faint)}
 .marquee-content span{padding:0 2rem;opacity:.35}
@@ -111,7 +111,7 @@ nav.scrolled .hamburger span{background:var(--ink)}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== SECTIONS ===== */
-section{max-width:1400px;margin:0 auto;padding:140px 3rem}
+section{max-width:1400px;margin:0 auto;padding:140px 3rem;position:relative;z-index:1;background:var(--surface)}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
 .sh2{font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-1px;color:var(--ink);margin-bottom:1.5rem}
 .sh2 em{font-style:italic;background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -272,7 +272,7 @@ section{max-width:1400px;margin:0 auto;padding:140px 3rem}
 .page-hero p{font-size:17px;color:rgba(255,255,255,.5);line-height:1.8;max-width:580px}
 
 /* ===== DIVIDER ===== */
-.gradient-line{height:1px;max-width:1400px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--accent-light),var(--accent),var(--accent-light),transparent);border:none}
+.gradient-line{height:1px;max-width:1400px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--accent-light),var(--accent),var(--accent-light),transparent);border:none;position:relative;z-index:1}
 
 /* ===== FOOTER ===== */
 footer{background:var(--ink);padding:5rem 3rem 2.5rem;color:rgba(255,255,255,.5)}
