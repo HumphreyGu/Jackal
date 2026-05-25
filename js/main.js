@@ -20,7 +20,9 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const mobileOverlay = document.querySelector('.mobile-overlay');
 
 function toggleMobileMenu() {
+  const isOpen = !hamburger.classList.contains('open');
   hamburger.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', isOpen);
   mobileMenu.classList.toggle('open');
   mobileOverlay.classList.toggle('open');
   document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
