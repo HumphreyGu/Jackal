@@ -187,3 +187,129 @@ if (parallaxImgs.length) {
     }
   }, { passive: true });
 }
+
+// ===== WPP-INSPIRED DYNAMIC EFFECTS =====
+
+// Scroll Progress Bar
+(function(){
+  const bar = document.querySelector('.scroll-progress');
+  if(!bar) return;
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+  }, {passive:true});
+})();
+
+// Hero Canvas Particle Network
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const parent = canvas.parentElement;
+  let particles = [];
+  const COUNT = 55;
+  const LINK_DIST = 130;
+
+  function resize(){
+    canvas.width = parent.offsetWidth;
+    canvas.height = parent.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for(let i = 0; i < COUNT; i++){
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - .5) * .35,
+      vy: (Math.random() - .5) * .35,
+      r: Math.random() * 1.5 + .5
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(let i = 0; i < particles.length; i++){
+      const p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(155,143,255,0.22)';
+      ctx.fill();
+      for(let j = i + 1; j < particles.length; j++){
+        const q = particles[j];
+        const dx = p.x - q.x, dy = p.y - q.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if(d < LINK_DIST){
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(61,47,212,${.055*(1-d/LINK_DIST)})`;
+          ctx.lineWidth = .5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Cursor Glow
+(function(){
+  const glow = document.querySelector('.cursor-glow');
+  if(!glow) return;
+  let active = false;
+  document.addEventListener('mousemove', e => {
+    if(!active){ glow.classList.add('active'); active = true; }
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+  document.addEventListener('mouseleave', () => {
+    glow.classList.remove('active'); active = false;
+  });
+})();
+
+// Card 3D Tilt
+document.querySelectorAll('.card-tilt').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `perspective(800px) rotateY(${x*5}deg) rotateX(${-y*5}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// Geometric Parallax
+(function(){
+  const geos = document.querySelectorAll('.geo');
+  if(!geos.length) return;
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(() => {
+      geos.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight && rect.bottom > 0){
+          const speed = parseFloat(el.dataset.speed || .03);
+          const offset = (rect.top + rect.height/2 - window.innerHeight/2) * speed;
+          const base = el.classList.contains('geo-diamond') ? ' rotate(45deg)' : '';
+          el.style.transform = `translateY(${offset}px)${base}`;
+        }
+      });
+    });
+  }, {passive:true});
+})();
+
+// Image Reveal on Scroll
+(function(){
+  const imgs = document.querySelectorAll('.img-reveal');
+  if(!imgs.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold:.15});
+  imgs.forEach(el => obs.observe(el));
+})();

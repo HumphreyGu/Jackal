@@ -20,6 +20,7 @@
 <body class="lang-en">
 
 <a href="#main-content" class="skip-link">Skip to content</a>
+<div class="scroll-progress"></div>
 
 <nav>
   <a href="index.html" class="logo"><em>AI</em>MKT</a>
@@ -49,13 +50,14 @@
 
 <!-- Hero -->
 <div class="hero-bg" aria-hidden="true">
+  <canvas id="hero-canvas"></canvas>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 </div>
 <div class="hero">
   <div class="hero-content">
-    <div class="hero-tag reveal"><span class="en">AI Marketing Hub</span><span class="zh">AI 营销中台</span><span class="th">ศูนย์การตลาด AI</span></div>
+    <div class="hero-tag reveal"><span class="en gradient-anim">AI Marketing Hub</span><span class="zh">AI 营销中台</span><span class="th">ศูนย์การตลาด AI</span></div>
     <h1 class="reveal d1"><span class="en">Every Campaign,<br><em>Planned, Tracked</em><br>and Delivered.</span><span class="zh">让每一个 Campaign，<br><em>从策划到收口</em><br>都有数可依。</span><span class="th">ทุกแคมเปญ<em><br>วางแผน ติดตาม</em><br>และดำเนินการ</span></h1>
     <p class="hero-sub reveal d2"><span class="en">AIMKT is the AI-powered marketing hub built for brand teams — accelerate creative production, track every campaign in real time, and find the right vendors in one place.</span><span class="zh">AIMKT 是专为品牌营销团队打造的 AI 中台 —— AI 工具提速创意生产，实时 Dashboard 追踪每条链路，供应商市场一键匹配合作伙伴。</span><span class="th">AIMKT คือแพลตฟอร์มการตลาดที่ขับเคลื่อนด้วย AI สร้างขึ้นสำหรับทีมแบรนด์</span></p>
     <div class="hero-actions reveal d3">
@@ -75,7 +77,9 @@
 </div>
 
 <!-- Why AIMKT -->
-<section id="main-content">
+<section id="main-content" class="section-glow">
+  <div class="geo geo-ring pulse-ring" style="top:10%;right:5%" data-speed=".02"></div>
+  <div class="geo geo-diamond float" style="bottom:15%;left:3%" data-speed=".04"></div>
   <div class="editorial reveal">
     <div class="e-img">
       <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1920&q=90" alt="" style="width:100%;height:100%;object-fit:cover">
@@ -95,24 +99,26 @@
 
 <!-- Features Bento Grid -->
 <section>
+  <div class="geo geo-cross float-d1" style="top:8%;left:8%"></div>
+  <div class="geo geo-dot" style="bottom:20%;right:4%"></div>
   <div class="shead reveal">
     <div class="eyebrow"><span class="en">Core Product</span><span class="zh">核心产品</span><span class="th">ผลิตภัณฑ์หลัก</span></div>
     <h2 class="sh2"><span class="en">Three modules, <em>one platform</em></span><span class="zh">三大模块，<em>一站解决</em></span><span class="th">สามโมดูล<em>หนึ่งแพลตฟอร์ม</em></span></h2>
   </div>
   <div class="bento-grid">
-    <div class="card reveal">
+    <div class="card card-tilt reveal">
       <div class="card-tag"><span class="en">01</span></div>
       <h3><span class="en">AI Toolkit</span><span class="zh">AI 工具套件</span><span class="th">ชุดเครื่องมือ AI</span></h3>
       <p><span class="en">Your marketing co-pilot. Generate briefs, creative copy, media strategies and competitor analysis — save 60% time.</span><span class="zh">你的营销 AI 助理。Brief 生成、创意文案、投放策略、竞品洞察，贯穿全流程。</span><span class="th">ผู้ช่วยการตลาด AI ของคุณ สร้าง Brief คัดลอกครีเอทีฟ กลยุทธ์สื่อ และวิเคราะห์คู่แข่ง</span></p>
       <a href="features.html" class="btn-ghost" style="margin-top:1.5rem;border-color:var(--border);color:var(--ink)"><span class="en">Learn more →</span><span class="zh">了解更多 →</span><span class="th">เรียนรู้เพิ่มเติม →</span></a>
     </div>
-    <div class="card reveal d1">
+    <div class="card card-tilt reveal d1">
       <div class="card-tag"><span class="en">02</span></div>
       <h3><span class="en">Campaign Dashboard</span><span class="zh">Campaign Dashboard</span><span class="th">แดชบอร์ดแคมเปญ</span></h3>
       <p><span class="en">Auto-aggregate cross-channel data. Track ROI in real time. Monitor vendor delivery at a glance.</span><span class="zh">跨渠道数据自动聚合，实时 ROI 追踪，供应商执行进度一目了然。</span><span class="th">รวบรวมข้อมูลข้ามช่องทางอัตโนมัติ ติดตาม ROI แบบเรียลไทม์</span></p>
       <a href="features.html" class="btn-ghost" style="margin-top:1.5rem;border-color:var(--border);color:var(--ink)"><span class="en">Learn more →</span><span class="zh">了解更多 →</span><span class="th">เรียนรู้เพิ่มเติม →</span></a>
     </div>
-    <div class="card reveal d2">
+    <div class="card card-tilt reveal d2">
       <div class="card-tag"><span class="en">03</span></div>
       <h3><span class="en">Vendor Marketplace</span><span class="zh">供应商市场</span><span class="th">ตลาดผู้ขาย</span></h3>
       <p><span class="en">Filter by service, expertise, budget & ratings. Browse cases, send RFQs, or share a brief — one click.</span><span class="zh">按服务类型、行业经验、预算、评分精准筛选。一键询价或直发 Brief。</span><span class="th">กรองตามบริการ ความเชี่ยวชาญ งบประมาณ และคะแนน ส่ง RFQ ได้ในคลิกเดียว</span></p>
@@ -131,6 +137,8 @@
 
 <!-- Testimonials -->
 <section>
+  <div class="geo geo-ring float-d2" style="top:5%;left:2%;width:clamp(60px,8vw,120px);height:clamp(60px,8vw,120px)" data-speed=".015"></div>
+  <div class="geo geo-diamond float-d3" style="bottom:10%;right:6%" data-speed=".025"></div>
   <div class="shead reveal">
     <div class="eyebrow"><span class="en">What users say</span><span class="zh">用户评价</span><span class="th">สิ่งที่ผู้ใช้พูด</span></div>
     <h2 class="sh2"><span class="en">Results teams <em>are seeing</em></span><span class="zh">他们用 AIMKT<em>做到了什么</em></span><span class="th">ผลลัพธ์ที่<em>ทีมต่างได้รับ</em></span></h2>
@@ -205,6 +213,7 @@
     </div>
   </div>
 </footer>
+<div class="cursor-glow"></div>
 <button class="back-to-top" aria-label="Back to top">↑</button>
 <script src="js/main.js"></script>
 </body>

@@ -344,3 +344,69 @@ a:focus-visible{text-decoration:underline}
   .team-list{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr}
 }
+
+/* ===== WPP-INSPIRED DYNAMIC VISUALS ===== */
+
+/* Scroll Progress */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-mid),var(--warm),var(--accent-mid),var(--accent));background-size:300% 100%;z-index:200;width:0;pointer-events:none;animation:progressGradient 4s linear infinite}
+@keyframes progressGradient{0%{background-position:0% 0}100%{background-position:300% 0}}
+
+/* Hero Canvas */
+#hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5}
+
+/* Cursor Glow */
+.cursor-glow{position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(61,47,212,.05),transparent 70%);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:opacity .4s;opacity:0}
+.cursor-glow.active{opacity:1}
+
+/* Geometric Accents */
+.geo{position:absolute;pointer-events:none;z-index:0}
+.geo-ring{width:clamp(100px,14vw,200px);height:clamp(100px,14vw,200px);border:1px solid rgba(61,47,212,.06);border-radius:50%}
+.geo-diamond{width:clamp(40px,5vw,70px);height:clamp(40px,5vw,70px);border:1px solid rgba(107,94,232,.07);transform:rotate(45deg)}
+.geo-cross{width:24px;height:24px;position:relative}
+.geo-cross::before,.geo-cross::after{content:'';position:absolute;background:rgba(61,47,212,.1)}
+.geo-cross::before{width:1px;height:100%;left:50%;transform:translateX(-50%)}
+.geo-cross::after{height:1px;width:100%;top:50%;transform:translateY(-50%)}
+.geo-dot{width:5px;height:5px;background:rgba(61,47,212,.12);border-radius:50%}
+.geo-ring.pulse-ring{animation:geoPulse 4s ease-in-out infinite}
+@keyframes geoPulse{0%,100%{transform:scale(1);opacity:.06}50%{transform:scale(1.06);opacity:.1}}
+
+/* Float animations */
+.float{animation:geoFloat 8s ease-in-out infinite}
+@keyframes geoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.float-d1{animation-delay:-2s}.float-d2{animation-delay:-4s}.float-d3{animation-delay:-6s}
+
+/* Card 3D Tilt */
+.card-tilt{transition:transform .5s cubic-bezier(.25,.1,.25,1),box-shadow .5s cubic-bezier(.25,.1,.25,1);will-change:transform}
+
+/* Gradient Animated Text */
+.gradient-anim{background:linear-gradient(135deg,var(--accent),var(--accent-mid),var(--warm),var(--accent-mid),var(--accent));background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gShift 6s ease-in-out infinite}
+@keyframes gShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* Section Glow */
+.section-glow{position:relative}
+.section-glow::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(61,47,212,.03),transparent 70%);pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%)}
+
+/* Wave Divider */
+.wave-divider{width:100%;overflow:hidden;line-height:0;position:relative;z-index:1}
+.wave-divider svg{display:block;width:100%;height:50px}
+
+/* Image Reveal */
+.img-reveal{clip-path:inset(100% 0 0 0);transition:clip-path 1.2s cubic-bezier(.25,.1,.25,1)}
+.img-reveal.visible{clip-path:inset(0 0 0 0)}
+
+/* Enhanced hero orb glow */
+.hero-bg .orb{animation:orbFloat 14s ease-in-out infinite, orbGlow 6s ease-in-out infinite}
+@keyframes orbGlow{0%,100%{filter:blur(120px)}50%{filter:blur(100px)}}
+
+/* Page hero enhanced */
+.page-hero-wrap .orb{animation:orbFloat 14s ease-in-out infinite, orbGlow 6s ease-in-out infinite}
+
+/* Responsive hide cursor glow on mobile */
+@media(max-width:860px){
+  .cursor-glow{display:none}
+  .geo{display:none}
+  .wave-divider svg{height:30px}
+}
+@media(max-width:480px){
+  .wave-divider svg{height:20px}
+}
