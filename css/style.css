@@ -111,6 +111,8 @@ section.alt{background:var(--surface-2)}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
 .sh2{font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-1px;color:var(--ink);margin-bottom:1.5rem}
 .sh2 em{font-style:italic;background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* prevent CJK trailing glyph clip on gradient-filled text */
+.hero h1 em,.page-hero h1 em,.sh2 em,.e-text h2 em,.feat-num,.flogo em,.logo em{padding-right:.14em}
 .slead{font-size:17px;color:var(--ink-muted);max-width:560px;line-height:1.8}
 .shead{margin-bottom:4rem}
 
