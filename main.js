@@ -236,7 +236,7 @@ if (parallaxImgs.length) {
       if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(155,143,255,0.22)';
+      ctx.fillStyle = 'rgba(27,58,107,0.20)';
       ctx.fill();
       for(let j = i + 1; j < particles.length; j++){
         const q = particles[j];
@@ -246,7 +246,7 @@ if (parallaxImgs.length) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(61,47,212,${.055*(1-d/LINK_DIST)})`;
+          ctx.strokeStyle = `rgba(14,159,110,${.06*(1-d/LINK_DIST)})`;
           ctx.lineWidth = .5;
           ctx.stroke();
         }
