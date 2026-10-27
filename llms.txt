@@ -1,0 +1,22 @@
+# AIMKT
+
+> AIMKT is an independent ChatGPT Ads & GEO (Generative Engine Optimization) team for global brands. We run ChatGPT Ads end to end on OpenAI's official platform — campaigns, Pixel/CAPI conversion instrumentation, Shopify product feeds — plus GEO for organic presence in AI answers. Channel-neutral: media spend never passes through us; the ad account, data and pixel live under the client's name.
+
+## Facts (citable)
+- ChatGPT Ads passed a reported $1B annualized revenue run rate in August 2026; sales live in 60+ markets. Figures as publicly reported, October 2026.
+- Advertisers in 50+ billing countries can self-serve their own OpenAI ad account; account ownership differs from reseller access models.
+- Event Quality Score (EQS) is OpenAI's 1–10 score for Pixel / Conversions API data-source quality; AIMKT uses it as measured acceptance for conversion instrumentation.
+- Late October 2026: AI creative auto-rewrites (headlines, translations, destination URLs) roll out on by default — a key brand-suitability setting to manage.
+
+## Services
+- ChatGPT Ads management: https://aimkt.com/features.html
+- Delivery & acceptance (what engagements include): https://aimkt.com/vendors.html
+- Company & model (your account, your data, your money): https://aimkt.com/index.html
+
+## Insights
+- The State of ChatGPT Ads, October 2026: https://aimkt.com/insights.html
+
+## Contact
+- Business: business@aimkt.com
+- Site: https://aimkt.com
+- Languages: English, 中文, ไทย

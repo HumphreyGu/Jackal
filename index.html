@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AIMKT — AI Search, GEO &amp; Conversational Ads Agency</title>
-  <meta name="description" content="AIMKT is the full-stack AI search marketing agency — GEO (Generative Engine Optimization), AI ads on Copilot & OpenAI, and retail product feeds. Get recommended inside ChatGPT, Perplexity & Gemini.">
+  <meta name="description" content="AIMKT runs ChatGPT Ads end to end — campaigns, Pixel/CAPI conversion tracking, Shopify feeds and GEO — on OpenAI's official platform. Your account, your data, your money.">
   <link rel="canonical" href="https://aimkt.com/">
   <meta property="og:title" content="AIMKT — AI Search, GEO & Conversational Ads Agency">
   <meta property="og:description" content="The full-stack AI search marketing agency. Get recommended inside ChatGPT, Copilot, Perplexity & Gemini.">
@@ -26,7 +26,8 @@
   <a href="index.html" class="logo"><em>AI</em>MKT</a>
   <ul class="nav-links">
     <li><a href="features.html"><span class="en">Services</span><span class="zh">服务</span><span class="th">บริการ</span></a></li>
-    <li><a href="vendors.html"><span class="en">Cases</span><span class="zh">标杆案例</span><span class="th">เคส</span></a></li>
+    <li><a href="vendors.html"><span class="en">Approach</span><span class="zh">服务方法</span><span class="th">แนวทาง</span></a></li>
+    <li><a href="insights.html"><span class="en">Insights</span><span class="zh">洞察</span><span class="th">อินไซต์</span></a></li>
     <li><a href="about.html"><span class="en">About</span><span class="zh">关于我们</span><span class="th">เกี่ยวกับเรา</span></a></li>
     <li><a href="culture.html"><span class="en">Culture</span><span class="zh">企业文化</span><span class="th">วัฒนธรรม</span></a></li>
     <li><a href="sustainability.html"><span class="en">Sustainability</span><span class="zh">可持续发展</span><span class="th">ความยั่งยืน</span></a></li>
@@ -42,7 +43,8 @@
 <div class="mobile-menu">
   <a href="index.html"><span class="en">Home</span><span class="zh">首页</span><span class="th">หน้าแรก</span></a>
   <a href="features.html"><span class="en">Services</span><span class="zh">服务</span><span class="th">บริการ</span></a>
-  <a href="vendors.html"><span class="en">Cases</span><span class="zh">标杆案例</span><span class="th">เคส</span></a>
+  <a href="vendors.html"><span class="en">Approach</span><span class="zh">服务方法</span><span class="th">แนวทาง</span></a>
+<a href="insights.html"><span class="en">Insights</span><span class="zh">洞察</span><span class="th">อินไซต์</span></a>
   <a href="about.html"><span class="en">About</span><span class="zh">关于我们</span><span class="th">เกี่ยวกับเรา</span></a>
   <a href="culture.html"><span class="en">Culture</span><span class="zh">企业文化</span><span class="th">วัฒนธรรม</span></a>
   <a href="sustainability.html"><span class="en">Sustainability</span><span class="zh">可持续发展</span><span class="th">ความยั่งยืน</span></a>
@@ -62,11 +64,58 @@
     <p class="hero-sub reveal d2"><span class="en">AIMKT is the full-stack AI search marketing agency. We help brands get recommended inside ChatGPT, Copilot, Perplexity &amp; Gemini — and turn AI conversations into revenue.</span><span class="zh">AIMKT 是全栈 AI 搜索营销代理商。我们帮品牌在 ChatGPT、Copilot、Perplexity、Gemini 的回答里赢得优先推荐，把 AI 对话变成真实生意。</span><span class="th">AIMKT คือผู้เชี่ยวชาญด้าน AI Search แบบครบวงจร ช่วยให้แบรนด์ของคุณถูกแนะนำใน ChatGPT, Copilot, Perplexity & Gemini และเปลี่ยนการสนทนา AI เป็นรายได้</span></p>
     <div class="hero-actions reveal d3">
       <a href="mailto:business@aimkt.com" class="btn-lg"><span class="en">Book a Demo →</span><span class="zh">预约咨询 →</span><span class="th">นัดปรึกษา →</span></a>
-      <a href="vendors.html" class="btn-lg-out"><span class="en">View Cases</span><span class="zh">查看案例</span><span class="th">ดูเคส</span></a>
+      <a href="onepager-en.pdf" download class="btn-lg-out"><span class="en">Download One-Pager</span><span class="zh">下载一页介绍</span><span class="th">ดาวน์โหลด One-Pager</span></a>
     </div>
-    <p class="hero-trust reveal d4"><span class="en">Trusted by global SaaS, DTC &amp; B2B brands · 5+ AI platforms</span><span class="zh">已服务出海 SaaS、DTC、B2B 品牌 · 覆盖 5+ AI 平台</span><span class="th">ได้รับความไว้วางใจจากแบรนด์ SaaS, DTC & B2B · 5+ แพลตฟอร์ม AI</span></p>
+    <p class="hero-trust reveal d4"><span class="en">Early partner seats open · ChatGPT Ads since Beta · GEO + Paid, one team</span><span class="zh">早期合作伙伴席位开放 · ChatGPT Ads Beta 期入场 · GEO 与付费投放一个团队</span><span class="th">เปิดรับพันธมิตรระยะแรก · ChatGPT Ads ตั้งแต่ Beta · GEO + Paid ทีมเดียว</span></p>
+  </div>
+  <div class="hero-demo-wrap reveal d4">
+    <div class="chat-demo" id="chatDemo">
+      <div class="chat-demo-bar"><i></i><i></i><i></i><span>chatgpt.com</span></div>
+      <div class="chat-demo-body">
+        <div class="cd-bubble user"><span id="cdQuestion"></span><span class="caret" id="cdCaret"></span></div>
+        <div class="cd-bubble ai" id="cdAnswer">
+          <span class="en">For two cats on different diets, an RFID feeder that recognizes each collar tag is the cleanest setup — it locks each bowl to one cat automatically.</span>
+          <span class="zh">两只猫吃不同粮的话，最干净的方案是 RFID 智能喂食器——识别项圈自动锁定各自的碗。</span>
+          <span class="th">For two cats on different diets, an RFID feeder that recognizes each collar tag is the cleanest setup.</span>
+        </div>
+        <div class="cd-ad" id="cdAd">
+          <div class="cd-ad-thumb">🐾</div>
+          <div class="cd-ad-info">
+            <div class="cd-ad-sponsored">Sponsored · Your Brand</div>
+            <div class="cd-ad-title"><span class="en">Your Product — Smart Feeder for Multi-Pet Homes</span><span class="zh">你的产品——多宠家庭智能喂食器</span><span class="th">สินค้าของคุณ — เครื่องให้อาหารอัจฉริยะสำหรับบ้านหลายสัตว์เลี้ยง</span></div>
+            <div class="cd-ad-desc"><span class="en">Scenario-based targeting puts your product in the answer</span><span class="zh">场景化定向让你的产品出现在答案里</span><span class="th">การกำหนดเป้าตามสถานการณ์ทำให้สินค้าของคุณอยู่ในคำตอบ</span></div>
+          </div>
+          <div class="cd-ad-cta">Shop now</div>
+        </div>
+      </div>
+    </div>
+    <p class="cd-caption"><span class="en">This is the placement we win for you — inside the answer, at the decision moment.</span><span class="zh">这就是我们帮你占住的位置——答案里，决策瞬间。</span><span class="th">นี่คือตำแหน่งที่เราช่วยคุณครอง — ในคำตอบ ณ ช่วงเวลาตัดสินใจ</span></p>
   </div>
 </div>
+
+<script>
+(function(){
+  var questions={en:"Best automatic feeder for two cats on different diets?",zh:"两只猫吃不同的粮,有什么好的自动喂食器?",th:"Best automatic feeder for two cats on different diets?"};
+  function lang(){return document.body.classList.contains('lang-zh')?'zh':(document.body.classList.contains('lang-th')?'th':'en');}
+  function run(){
+    var q=document.getElementById('cdQuestion'),a=document.getElementById('cdAnswer'),ad=document.getElementById('cdAd'),caret=document.getElementById('cdCaret');
+    var text=questions[lang()]||questions.en;
+    q.textContent='';a.classList.remove('show');ad.classList.remove('show');
+    var i=0;
+    (function type(){
+      if(i<=text.length){q.textContent=text.slice(0,i);i++;setTimeout(type,34);}
+      else{setTimeout(function(){caret.style.display='none';a.classList.add('show');},420);
+           setTimeout(function(){ad.classList.add('show');},1750);
+           setTimeout(function(){caret.style.display='';run();},8600);}
+    })();
+  }
+  var started=false;
+  window.addEventListener('scroll',function(){if(!started&&window.scrollY<window.innerHeight*0.9){}},{passive:true});
+  function boot(){if(started)return;started=true;run();}
+  if(window.IntersectionObserver){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){boot();io.disconnect();}})},{threshold:.3});io.observe(document.getElementById('chatDemo'));}
+  else{boot();}
+})();
+</script>
 
 <!-- Marquee -->
 <div class="marquee-section">
@@ -98,8 +147,8 @@
   <div class="bento-grid">
     <div class="card card-tilt reveal">
       <div class="card-tag"><span class="en">01</span></div>
-      <h3><span class="en">Paid AI Ads &amp; Placement</span><span class="zh">付费竞价与生态卡位</span><span class="th">โฆษณา AI และตำแหน่งวาง</span></h3>
-      <p><span class="en">Buy premium real estate inside AI answers. We run Microsoft Advertising (Copilot) and OpenAI Ads with context-aware targeting that reaches users at the decision moment.</span><span class="zh">买下 AI 回答页的优质广告位。我们投放 Microsoft Advertising (Copilot) 与 OpenAI Ads，用上下文意图定向触达决策瞬间。</span><span class="th">จองพื้นที่โฆษณาในคำตอบ AI เราดูแล Microsoft Advertising (Copilot) และ OpenAI Ads ด้วยการกำหนดเป้าตามบริบท</span></p>
+      <h3><span class="en">ChatGPT Ads, End to End</span><span class="zh">ChatGPT Ads 全链路投放</span><span class="th">ChatGPT Ads แบบครบวงจร</span></h3>
+      <p><span class="en">Campaigns on OpenAI's official ads platform, run by an API-first team since the Beta: conversion tracking (Pixel + CAPI), Shopify feed integration, scenario-based targeting and brand-safety guardrails on top.</span><span class="zh">基于 OpenAI 官方广告平台的投放——Beta 期入场、API 优先的团队操盘：转化追踪（Pixel + CAPI）部署、Shopify 商品目录接入、场景化定向与品牌安全护栏。</span><span class="th">แคมเปญบนแพลตฟอร์มโฆษณาทางการของ OpenAI โดยทีม API-first ตั้งแต่ Beta: ติดตาม Conversion (Pixel + CAPI), เชื่อมต่อ Shopify Feed, การกำหนดเป้าตามสถานการณ์ และ Brand Safety</span></p>
       <a href="features.html" class="btn-ghost" style="margin-top:1.5rem;border-color:var(--border);color:var(--ink)"><span class="en">Learn more →</span><span class="zh">了解更多 →</span><span class="th">เรียนรู้เพิ่มเติม →</span></a>
     </div>
     <div class="card card-tilt reveal d1">
@@ -111,47 +160,75 @@
     <div class="card card-tilt reveal d2">
       <div class="card-tag"><span class="en">03</span></div>
       <h3><span class="en">Retail &amp; Product Feed</span><span class="zh">Retail &amp; Product Feed</span><span class="th">Retail &amp; Product Feed</span></h3>
-      <p><span class="en">Plug your catalog into AI shopping. Via Criteo and commerce DSPs, your products show up inside AI recommendation cards — shortening the path from recommended to purchased.</span><span class="zh">把商品库接入 AI 购物。通过 Criteo 与商务 DSP，你的商品出现在 AI 推荐卡片里，缩短从「被推荐」到「下单」的路径。</span><span class="th">เชื่อมแคตตาล็อกเข้ากับ AI Shopping ผ่าน Criteo และ Commerce DSP</span></p>
+      <p><span class="en">Plug your catalog into AI shopping: native product feeds and the Shopify app connection put your products inside AI recommendation cards — shortening the path from recommended to purchased.</span><span class="zh">把商品库接入 AI 购物：原生商品 Feed 与 Shopify 直连，让你的商品出现在 AI 推荐卡片里，缩短从「被推荐」到「下单」的路径。</span><span class="th">เชื่อมแคตตาล็อกเข้ากับ AI Shopping ด้วย Product Feed และ Shopify เพื่อให้สินค้าของคุณปรากฏในการ์ดแนะนำของ AI</span></p>
       <a href="features.html" class="btn-ghost" style="margin-top:1.5rem;border-color:var(--border);color:var(--ink)"><span class="en">Learn more →</span><span class="zh">了解更多 →</span><span class="th">เรียนรู้เพิ่มเติม →</span></a>
     </div>
   </div>
 </section>
 
-<!-- Full-bleed Quote -->
-<div class="full-bleed reveal" style="background:url('images/quote-bg.png') center/cover;min-height:50vh;display:flex;align-items:center;justify-content:center">
-  <div class="overlay-text">
-    <blockquote><span class="en">"Six months ago no AI mentioned us. Today we're the most-recommended brand in our category."</span><span class="zh">「半年前，没有任何 AI 提到我们；今天，我们是品类里被推荐最多的品牌。」</span><span class="th">"หกเดือนก่อนไม่มี AI พูดถึงเรา วันนี้เราคือแบรนด์ที่ถูกแนะนำมากที่สุดในหมวดของเรา"</span></blockquote>
-    <cite><span class="en">CMO, Global B2B SaaS Company</span><span class="zh">某全球化 B2B SaaS 公司 CMO</span><span class="th">CMO, Global B2B SaaS Company</span></cite>
+<!-- Early Partner Program -->
+<section style="background:rgba(11,46,79,.03);padding-top:90px;padding-bottom:90px">
+  <div class="shead reveal">
+    <div class="eyebrow"><span class="en">Early Partner Program</span><span class="zh">早期合作伙伴计划</span><span class="th">โปรแกรมพันธมิตรระยะแรก</span></div>
+    <h2 class="sh2"><span class="en">Founding pilot seats, <em>open now</em></span><span class="zh">首批试点席位，<em>开放中</em></span><span class="th">ที่นั่งนำร่องรุ่นแรก<em>เปิดอยู่ตอนนี้</em></span></h2>
+    <p class="slead" style="max-width:720px;margin:0 auto 8px"><span class="en">We are a specialist team that entered ChatGPT Ads during the Beta — and we open a limited number of founding pilot seats instead of anonymous case studies.</span><span class="zh">我们是 Beta 期入场的 ChatGPT Ads 专职团队——我们开放少量首批试点席位，而不是放匿名案例。</span><span class="th">เราเป็นทีมเฉพาะทางที่เข้าสู่ ChatGPT Ads ตั้งแต่ Beta และเปิดที่นั่งนำร่องจำนวนจำกัดแทนเคสศึกษาไม่ระบุชื่อ</span></p>
   </div>
-</div>
+  <div class="pilot-grid" style="margin-top:34px">
+    <div class="pilot-card reveal">
+      <div class="pilot-num">$50</div>
+      <h4><span class="en">/day to start</span><span class="zh">/日起测</span><span class="th">/วัน เริ่มต้น</span></h4>
+      <p><span class="en">Small-budget pilots on OpenAI's official platform — early-auction pricing, risk capped, data you keep.</span><span class="zh">OpenAI 官方平台小预算试点——竞价早期红利、风险可控、数据归你。</span><span class="th">นำร่องงบประมาณเล็กบนแพลตฟอร์มทางการของ OpenAI — ความเสี่ยงจำกัด ข้อมูลเป็นของคุณ</span></p>
+    </div>
+    <div class="pilot-card reveal d1">
+      <div class="pilot-num">EQS</div>
+      <h4><span class="en">Measured delivery</span><span class="zh">量化验收</span><span class="th">การส่งมอบที่วัดผลได้</span></h4>
+      <p><span class="en">Conversion instrumentation scored by the platform's Event Quality Score — you see exactly what was deployed and how well.</span><span class="zh">转化部署以平台官方 Event Quality Score 打分验收——装了什么、装得好不好，全部可见。</span><span class="th">การติดตั้ง Conversion ถูกวัดด้วย Event Quality Score ของแพลตฟอร์ม</span></p>
+    </div>
+    <div class="pilot-card reveal d2">
+      <div class="pilot-num">100%</div>
+      <h4><span class="en">Audited &amp; yours</span><span class="zh">全程审计、账户归你</span><span class="th">ตรวจสอบได้ และเป็นของคุณ</span></h4>
+      <p><span class="en">Every change logged and exportable. The ad account, data and pixel live under your name — zero lock-in, hand over anytime.</span><span class="zh">每一步操作留痕可导出。广告账户、数据与像素都在你名下——零锁定，随时移交。</span><span class="th">ทุกการเปลี่ยนแปลงถูกบันทึก บัญชีโฆษณาและข้อมูลอยู่ในชื่อของคุณ ไม่มีการล็อคอิน</span></p>
+    </div>
+  </div>
+</section>
 
-<!-- Testimonials -->
+<!-- Differentiation: AIMKT vs traditional -->
 <section>
   <div class="geo geo-ring float-d2" style="top:5%;left:2%;width:clamp(60px,8vw,120px);height:clamp(60px,8vw,120px)" data-speed=".015"></div>
   <div class="geo geo-diamond float-d3" style="bottom:10%;right:6%" data-speed=".025"></div>
   <div class="shead reveal">
-    <div class="eyebrow"><span class="en">What clients say</span><span class="zh">客户评价</span><span class="th">สิ่งที่ลูกค้าพูด</span></div>
-    <h2 class="sh2"><span class="en">Results brands <em>are seeing</em></span><span class="zh">他们用 AIMKT<em>做到了什么</em></span><span class="th">ผลลัพธ์ที่<em>แบรนด์ต่างได้รับ</em></span></h2>
+    <div class="eyebrow"><span class="en">The AIMKT Model</span><span class="zh">AIMKT 的合作模式</span><span class="th">โมเดลของ AIMKT</span></div>
+    <h2 class="sh2"><span class="en">Your account, your data, <em>your money</em></span><span class="zh">你的账户、你的数据、<em>你的钱</em></span><span class="th">บัญชีของคุณ ข้อมูลของคุณ<em>เงินของคุณ</em></span></h2>
+    <p class="slead" style="max-width:720px;margin:0 auto"><span class="en">Most AI-ads channels today run through resellers: your account sits with them, your media budget flows through them. AIMKT works the other way — we are channel-neutral orchestrators, and media money never passes through us.</span><span class="zh">如今多数 AI 广告通道走的是转售模式：账户在代理手里，媒体费也经他们的手。AIMKT 反其道而行——我们是通道中立的编排者，媒体款永远不经过我们。</span><span class="th">ช่องทาง AI Ads ส่วนใหญ่วันนี้ผ่านตัวแทนขายต่อ AIMKT ทำตรงข้าม — เราเป็นผู้ประสานช่องทางที่เป็นกลาง เงินสื่อไม่ผ่านมือเรา</span></p>
   </div>
-  <div class="testimonial-grid">
-    <div class="testimonial reveal">
-      <p class="testimonial-quote en">"Our Share of Voice in ChatGPT jumped from near-zero to the top three in our category within two quarters."</p>
-      <p class="testimonial-quote zh">「两个季度内，我们在 ChatGPT 里的 AI 声量从几乎为零冲到品类前三。」</p>
-      <p class="testimonial-quote th">"Share of Voice ของเราใน ChatGPT กระโดดจากใกล้ศูนย์เข้าสู่สามอันดับแรกในสองไตรมาส"</p>
-      <div class="testimonial-author"><strong><span class="en">Head of Growth, B2B SaaS</span><span class="zh">某 B2B SaaS 增长负责人</span></strong><span class="en">Global SaaS</span><span class="zh">全球化 SaaS</span></div>
-    </div>
-    <div class="testimonial reveal d1">
-      <p class="testimonial-quote en">"Plugging our product feed into AI shopping cards lifted our AI-driven ROAS to 4.8×."</p>
-      <p class="testimonial-quote zh">「把商品 Feed 接入 AI 购物卡片后，AI 渠道的 ROAS 做到了 4.8 倍。」</p>
-      <p class="testimonial-quote th">"การเชื่อม Product Feed เข้ากับ AI Shopping Cards ยก ROAS จาก AI ขึ้นเป็น 4.8×"</p>
-      <div class="testimonial-author"><strong><span class="en">E-commerce Director, DTC Brand</span><span class="zh">某 DTC 品牌电商总监</span></strong><span class="en">High-AOV DTC</span><span class="zh">高客单 DTC</span></div>
-    </div>
-    <div class="testimonial reveal d2">
-      <p class="testimonial-quote en">"AIMKT's Context Hints library tells us exactly which prompts trigger our brand — that's a moat we didn't have before."</p>
-      <p class="testimonial-quote zh">「AIMKT 的上下文意图库能精确告诉我们哪些提问会触发自家品牌——这是我们过去没有的护城河。」</p>
-      <p class="testimonial-quote th">"Context Hints ของ AIMKT บอกเราได้เลยว่า Prompt ใดเรียกแบรนด์เรา นี่คือคูเมืองที่เราไม่เคยมี"</p>
-      <div class="testimonial-author"><strong><span class="en">CMO, Cross-border Brand</span><span class="zh">某跨境电商品牌 CMO</span></strong><span class="en">Cross-border E-commerce</span><span class="zh">跨境电商</span></div>
-    </div>
+  <div class="vs-wrap reveal" style="margin-top:34px">
+    <table class="vs-table">
+      <tr>
+        <th></th>
+        <th>AIMKT <span class="en">· technology-service model</span><span class="zh">· 技术服务模式</span><span class="th">· technology-service model</span></th>
+        <th><span class="en">Traditional agency / reseller model</span><span class="zh">传统代理 / 转售模式</span><span class="th">Traditional reseller model</span></th>
+      </tr>
+      <tr>
+        <td><span class="en">Account ownership</span><span class="zh">账户所有权</span><span class="th">ความเป็นเจ้าของบัญชี</span></td>
+        <td class="vs-yes"><span class="en">✓ Under your name from day one</span><span class="zh">✓ 从第一天起就在你名下</span><span class="th">✓ อยู่ในชื่อของคุณตั้งแต่วันแรก</span></td>
+        <td class="vs-no"><span class="en">✗ You advertise "through" the reseller</span><span class="zh">✗ 你在「通过」转售商投广告</span><span class="th">✗ โฆษณาผ่านตัวแทนขายต่อ</span></td>
+      </tr>
+      <tr>
+        <td><span class="en">Media spend</span><span class="zh">媒体费</span><span class="th">งบสื่อ</span></td>
+        <td class="vs-yes"><span class="en">✓ Paid directly to the platform — every dollar traceable</span><span class="zh">✓ 直付平台，每一分钱可查</span><span class="th">✓ จ่ายตรงกับแพลตฟอร์ม ตรวจสอบได้ทุกบาท</span></td>
+        <td class="vs-no"><span class="en">✗ Flows through the agency; costs opaque</span><span class="zh">✗ 经手代理，成本不透明</span><span class="th">✗ ไหลผ่านเอเจนซี่</span></td>
+      </tr>
+      <tr>
+        <td><span class="en">Onboarding fee</span><span class="zh">开户通道费</span><span class="th">ค่าธรรมเนียมเริ่มต้น</span></td>
+        <td class="vs-yes"><span class="en">✓ Zero — you set up your own account in 15 minutes</span><span class="zh">✓ 零——你自己 15 分钟开户</span><span class="th">✓ ฟรี — เปิดบัญชีเองใน 15 นาที</span></td>
+        <td class="vs-no"><span class="en">✗ Industry practice: ~1% of ad spend as access fee</span><span class="zh">✗ 行业惯例：约 1% 消耗额的通道费</span><span class="th">✗ ค่าเข้าถึงประมาณ 1% ของยอดโฆษณา</span></td>
+      </tr>
+      <tr>
+        <td><span class="en">Switching vendors</span><span class="zh">更换服务商</span><span class="th">การเปลี่ยนผู้ให้บริการ</span></td>
+        <td class="vs-yes"><span class="en">✓ Hand over anytime — a promise we put in the contract</span><span class="zh">✓ 随时移交——写进合同的承诺</span><span class="th">✓ ส่งมอบได้ทุกเมื่อ ระบุในสัญญา</span></td>
+        <td class="vs-no"><span class="en">✗ High switching costs; data hard to take with you</span><span class="zh">✗ 更换成本高、数据难带走</span><span class="th">✗ ต้นทุนการเปลี่ยนสูง</span></td>
+      </tr>
+    </table>
   </div>
 </section>
 
@@ -165,7 +242,7 @@
       </div>
       <div class="fcta-btns">
         <a href="mailto:business@aimkt.com" class="btn-primary btn-lg"><span class="en">Book a Demo →</span><span class="zh">预约咨询 →</span><span class="th">นัดปรึกษา →</span></a>
-        <a href="vendors.html" class="btn-lg-out" style="background:#fff;color:#0B1B33;border-color:rgba(11,27,51,.15)"><span class="en">View Cases</span><span class="zh">查看案例</span><span class="th">ดูเคส</span></a>
+        <a href="onepager-en.pdf" download class="btn-lg-out" style="background:#fff;color:#0B1B33;border-color:rgba(11,27,51,.15)"><span class="en">Download One-Pager</span><span class="zh">下载一页介绍</span><span class="th">ดาวน์โหลด One-Pager</span></a>
       </div>
     </div>
     <div class="ftop">
@@ -187,7 +264,7 @@
         <div class="fct"><span class="en">Company</span><span class="zh">公司</span><span class="th">บริษัท</span></div>
         <ul class="flinks">
           <li><a href="about.html"><span class="en">About</span><span class="zh">关于我们</span><span class="th">เกี่ยวกับเรา</span></a></li>
-          <li><a href="vendors.html"><span class="en">Cases</span><span class="zh">标杆案例</span><span class="th">เคส</span></a></li>
+          <li><a href="vendors.html"><span class="en">Approach</span><span class="zh">服务方法</span><span class="th">แนวทาง</span></a></li>
           <li><a href="culture.html"><span class="en">Culture</span><span class="zh">企业文化</span><span class="th">วัฒนธรรม</span></a></li>
           <li><a href="sustainability.html"><span class="en">Sustainability</span><span class="zh">可持续发展</span><span class="th">ความยั่งยืน</span></a></li>
         </ul>
